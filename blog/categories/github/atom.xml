@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: github | My Octopress Blog]]></title>
+  <title><![CDATA[Category: github | uedao]]></title>
   <link href="http://addcn.github.com/blog/categories/github/atom.xml" rel="self"/>
   <link href="http://addcn.github.com/"/>
-  <updated>2013-04-02T13:21:51+08:00</updated>
+  <updated>2013-04-02T13:33:35+08:00</updated>
   <id>http://addcn.github.com/</id>
   <author>
-    <name><![CDATA[Your Name]]></name>
+    <name><![CDATA[addcn]]></name>
     
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
@@ -163,22 +163,21 @@ $ cd username.github.com</code>
 
 <p>新建一个 index.html 文件，像下面这样:</p>
 
-<p><div>
-  <pre><code class='html'>&amp;lt;!doctype html&gt;
-&lt;html&gt;
-&lt;head&gt;
-&lt;title&gt;Hello&lt;/title&gt;
-&lt;/head&gt;&lt;/p&gt;
+<p>{% highlight html linenos %}
+&lt;!doctype html>
+<html>
+<head>
+<title>Hello</title>
+</head></p>
 
-&lt;p&gt;&lt;body&gt;&lt;/p&gt;
+<p><body></p>
 
-&lt;h1&gt;Hello!&lt;/h1&gt;
+<h1>Hello!</h1>
 
 
-&lt;p&gt;&lt;/body&gt;
-&lt;/html&gt;</code></pre>
-</div>
-</p>
+<p></body>
+</html>
+{% endhighlight %}</p>
 
 <p>初始化仓库、提交并push到Github:</p>
 
