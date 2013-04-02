@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[My Octopress Blog]]></title>
-  <link href="http://addcn.github.com/atom.xml" rel="self"/>
+  <title><![CDATA[Category: github | My Octopress Blog]]></title>
+  <link href="http://addcn.github.com/blog/categories/github/atom.xml" rel="self"/>
   <link href="http://addcn.github.com/"/>
   <updated>2013-04-02T13:21:51+08:00</updated>
   <id>http://addcn.github.com/</id>
@@ -22,7 +22,7 @@
 
 <p>cd octopress
 git clone git://github.com/addcns/Octopress-Theme-Simple.git .themes/simple
-rake install[&#8216;simple&#8217;]
+rake install['simple']
 rake generate</p>
 ]]></content>
   </entry>
@@ -101,117 +101,6 @@ disqus_show_comment_count: true
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[在Github上搭建Octopress博客]]></title>
-    <link href="http://addcn.github.com/blog/2013/04/01/github-octopress/"/>
-    <updated>2013-04-01T14:19:00+08:00</updated>
-    <id>http://addcn.github.com/blog/2013/04/01/github-octopress</id>
-    <content type="html"><![CDATA[<h2>一、安装octopress</h2>
-
-<p><strong>1、注册帐号</strong>
-<a href="https://github.com/users">https://github.com/users</a></p>
-
-<p><strong>2、安装octopress</strong>
-参照官方安装指引<a href="http://octopress.org/docs/">http://octopress.org/docs/</a></p>
-
-<pre class="terminal"><code>
-git clone git://github.com/imathis/octopress.git octopress
-cd octopress
-ruby --version  # Should report Ruby 1.9.3，我的是1.9.2不管它
-gem install bundler
-bundle install
-rake install
-</code></pre>
-
-
-<p><strong>3、github新建立版本库</strong></p>
-
-<p>github上<a href="https://github.com/new">https://github.com/new</a> 新建repo（参考<a href="http://xuhehuan.com/783.html">http://xuhehuan.com/783.html</a>）</p>
-
-<pre class="terminal"><code>
-Repository name addcns.github.com
-Description (optional)  octopress
-Initialize this repository with a README
-</code></pre>
-
-
-<p><strong>4、发布Octopress</strong></p>
-
-<pre class="terminal"><code>
-rake setup_github_pages
-git@addcns.github.com:addcns/addcns.github.com #注意多帐号，使用git@addcns.github.com:addcns，而非git@github.com:addcns
-rake install #安装默认主题
-rake generate #生成静态页面
-rake preview #本地预览，http://localhost:4000/
-rake new_post["titile"] #创建文章
-rake new_page[super-awesome] #创建页面
-rake deploy #发布到master分支,访问http:/addcns.github.com
-git add . #源文件发布source分支
-git commit -m "init octopress"
-git push origin source
-</code></pre>
-
-
-<p>最后访问见<a href="http://addcns.github.com">http://addcns.github.com</a></p>
-
-<h2>二、多个GitHub帐号的SSH key切换</h2>
-
-<p>为了测试注册两个github帐号，rake deploy时候会提示输入默认的id_rsa的密钥，所以需要切换帐号。参考<a href="http://www.zikercn.com/node/20">http://www.zikercn.com/node/20</a></p>
-
-<p><strong>1、生成id_rsa_addcns（区分默认id_rsa）</strong></p>
-
-<pre class="terminal"><code>
-ssh-keygen -t rsa -C "***@addcn.com"
-Enter file in which to save the key (/c/Documents and Settings/10113/.ssh/id_ras):
-id_rsa_addcns
-Enter passphrase(empty for no passphrase):
-******
-ssh-agent bash #报错：Could not open a connection to your authentication agent
-ssh-add id_rsa_addcns #增加id_rsa_addcns
-</code></pre>
-
-
-<p><strong>2、修改.ssh/id_rsa/config文件（无直接新建立）</strong></p>
-
-<pre class="terminal"><code>
-# Default github user(***@gmail.com)
-Host github.com
-HostName github.com
-User git
-IdentityFile /c/Docume~1/10113/.ssh/id_rsa
- 
-# second user(***@addcn.com)
-Host addcns.github.com
-HostName github.com
-User git
-IdentityFile /c/Docume~1/10113/.ssh/id_rsa_addcns
-</code></pre>
-
-
-<p><strong>3、github增加ssh key</strong></p>
-
-<p>登录github<a href="https://github.com/settings/ssh">https://github.com/settings/ssh</a>，左边面板选择ssh，然后把上步生成的.ssh/id_rsa_addcns.pub用记事本打开，复制里面的内容到Key表单。</p>
-
-<p><strong>4、增加用户 </strong></p>
-
-<pre class="terminal"><code>
-git config --list
-git config --global user.name "addcns"
-git config --global user.email ***@addcns.com
-</code></pre>
-
-
-<p><strong>5、验证github是否正确：</strong></p>
-
-<pre class="terminal"><code>
-ssh -T git@github.com
-</code></pre>
-
-
-<p>没有错误可以看到提示的，Hi,addcns! You&#8217;ve successfully authenticated&#8230;</p>
-]]></content>
-  </entry>
-  
-  <entry>
     <title type="html"><![CDATA[Jekyll在Github上中文问题]]></title>
     <link href="http://addcn.github.com/blog/2012/03/16/jekyll-chinese-on-github/"/>
     <updated>2012-03-16T18:43:00+08:00</updated>
@@ -274,19 +163,22 @@ $ cd username.github.com</code>
 
 <p>新建一个 index.html 文件，像下面这样:</p>
 
-<div>
-  <pre><code class='html'>&lt;!doctype html&gt;
+<p><div>
+  <pre><code class='html'>&amp;lt;!doctype html&gt;
 &lt;html&gt;
 &lt;head&gt;
 &lt;title&gt;Hello&lt;/title&gt;
-&lt;/head&gt;
+&lt;/head&gt;&lt;/p&gt;
 
-&lt;body&gt;
+&lt;p&gt;&lt;body&gt;&lt;/p&gt;
+
 &lt;h1&gt;Hello!&lt;/h1&gt;
-&lt;/body&gt;
+
+
+&lt;p&gt;&lt;/body&gt;
 &lt;/html&gt;</code></pre>
 </div>
-
+</p>
 
 <p>初始化仓库、提交并push到Github:</p>
 
@@ -372,7 +264,7 @@ $ git push origin master
 </pre>
 
 
-<p>二、安装DevKit。DevKit是windows平台编译和使用本地C/C++扩展包工具。用来模拟Linux平台下的 <code>make,gcc,sh</code> 进行编译。下载文件后，解压到 `C:\DevKit&#8217;，再通过命令行安装:</p>
+<p>二、安装DevKit。DevKit是windows平台编译和使用本地C/C++扩展包工具。用来模拟Linux平台下的 <code>make,gcc,sh</code> 进行编译。下载文件后，解压到 `C:\DevKit'，再通过命令行安装:</p>
 
 <pre class="terminal">
 <code>$ cd C:\DevKit
@@ -412,87 +304,6 @@ $ ruby dk.rb install</code>
 <li><a href="https://github.com/mojombo/jekyll/wiki">https://github.com/mojombo/jekyll/wiki</a></li>
 <li><a href="http://blog.envylabs.com/2009/08/publishing-a-blog-with-github-pages-and-jekyll/">http://blog.envylabs.com/2009/08/publishing-a-blog-with-github-pages-and-jekyll/</a></li>
 <li><a href="http://daringfireball.net/projects/markdown/syntax">http://daringfireball.net/projects/markdown/syntax</a></li>
-</ul>
-
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Windows下搭建Android开发环境]]></title>
-    <link href="http://addcn.github.com/blog/2011/04/15/windows-android-how-to/"/>
-    <updated>2011-04-15T18:43:00+08:00</updated>
-    <id>http://addcn.github.com/blog/2011/04/15/windows-android-how-to</id>
-    <content type="html"><![CDATA[<p>旧博文备份<a href="http://addcn.blogbus.com/logs/119738531.html">http://addcn.blogbus.com/logs/119738531.html</a></p>
-
-<p><strong>一、安装</strong></p>
-
-<p><strong>1、jdk（非jre）下载</strong></p>
-
-<p><a href="http://java.sun.com/javase/downloads/index.jsp">http://java.sun.com/javase/downloads/index.jsp</a></p>
-
-<p>默认安装在<code>C:\Program Files\Java\jdk1.6.0_24</code></p>
-
-<p><strong>2、eclipse下载</strong></p>
-
-<p>（1）<a href="http://www.oyksoft.com/soft/1250.html">http://www.oyksoft.com/soft/1250.html</a></p>
-
-<p>下载解压在<code>D:\Program Files\eclipse</code></p>
-
-<p>（2）添加环境变量</p>
-
-<p>JAVA_HOME <code>C:\Program Files\Java\jdk1.6.0_24</code></p>
-
-<p>CLASSPATH <code>.;%JAVA_HOME%\lib;%JAVA_HOME%\lib\tools.jar</code></p>
-
-<p>PATH <code>%JAVA_HOME%\bin;%JAVA_HOME%\jre\bin;D:\Program Files\Android\android-sdk-windows\tools</code></p>
-
-<p><strong>3、Android SDK</strong></p>
-
-<p><a href="http://dl.google.com/android/android-sdk_r08-windows.zip">http://dl.google.com/android/android-sdk_r08-windows.zip</a></p>
-
-<p>解压在<code>D:\Program Files\Android\android-sdk-windows</code></p>
-
-<p>（1）安装android开发插件(ADT)</p>
-
-<p>help->Install New SoftWare
-Add
-Name:Android
-Location:https://dl-ssl.google.com/android/eclipse/</p>
-
-<p>点击Yes按钮，最后重启Eclipse</p>
-
-<p>（2）配置Android SDK</p>
-
-<p>点击菜单window->preferences</p>
-
-<p>选择android SDK解压后的目录</p>
-
-<p>我这里只选了SDK 2.1 和samples for api 7 , 自己可以任意自定义，确定后，选择install按钮</p>
-
-<p>（3）新建AVD(android vitural device)</p>
-
-<p>android sdk and avd manager,选中Vitural Devices 在点击New按钮</p>
-
-<p>AVD2.2</p>
-
-<p>（4）HelloAndroid项目</p>
-
-<pre class="terminal"><code>HelloAndroid
-com.helloandroid
-HelloAndroid
-8
-Run as -> Run Configuration 选择AVD2.2
-</code></pre>
-
-
-<p><strong>二、参考文章</strong></p>
-
-<ul>
-<li><p><a href="http://www.cnblogs.com/nicholas_f/articles/1494073.html">jdk环境变量配置</a></p></li>
-<li><p>Android开发环境搭建</p></li>
-<li><a href="http://yidingdian.com/?p=13">http://yidingdian.com/?p=13</a></li>
-<li>[http://mobile.51cto.com/android-227548.htm(http://mobile.51cto.com/android-227548.htm)</li>
-<li><a href="http://www.cnblogs.com/Jackeyzhang/archive/2010/04/02/1703068.html">http://www.cnblogs.com/Jackeyzhang/archive/2010/04/02/1703068.html</a></li>
 </ul>
 
 ]]></content>
