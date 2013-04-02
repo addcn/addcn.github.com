@@ -4,7 +4,7 @@
   <title><![CDATA[uedao]]></title>
   <link href="http://addcn.github.com/atom.xml" rel="self"/>
   <link href="http://addcn.github.com/"/>
-  <updated>2013-04-02T13:33:33+08:00</updated>
+  <updated>2013-04-02T14:31:58+08:00</updated>
   <id>http://addcn.github.com/</id>
   <author>
     <name><![CDATA[addcn]]></name>
@@ -14,16 +14,156 @@
 
   
   <entry>
-    <title type="html"><![CDATA[Octopress自定义主题]]></title>
-    <link href="http://addcn.github.com/blog/2013/04/02/octopress-custom-theme/"/>
-    <updated>2013-04-02T11:16:00+08:00</updated>
-    <id>http://addcn.github.com/blog/2013/04/02/octopress-custom-theme</id>
-    <content type="html"><![CDATA[<p><strong> 新增主题 </strong></p>
+    <title type="html"><![CDATA[maven构建android项目]]></title>
+    <link href="http://addcn.github.com/blog/2013/04/02/maven-android-eclipse/"/>
+    <updated>2013-04-02T14:20:00+08:00</updated>
+    <id>http://addcn.github.com/blog/2013/04/02/maven-android-eclipse</id>
+    <content type="html"><![CDATA[<p>现有android项目环境</p>
 
-<p>cd octopress
-git clone git://github.com/addcns/Octopress-Theme-Simple.git .themes/simple
-rake install[&#8216;simple&#8217;]
-rake generate</p>
+<p>java安装路径：<code>C:\Program Files\Java\jdk1.6.0_24</code></p>
+
+<p>eclipse安装路径：<code>D:\Program Files\eclipse</code></p>
+
+<p>android sdk安装路径：<code>D:\Program Files\eclipse\sdk</code></p>
+
+<p>下面搭建maven环境集成现有的android项目</p>
+
+<h3>1、安装maven</h3>
+
+<p><a href="http://ftp.tc.edu.tw/pub/Apache/maven/maven-3/3.0.4/binaries/apache-maven-3.0.4-bin.zip">http://ftp.tc.edu.tw/pub/Apache/maven/maven-3/3.0.4/binaries/apache-maven-3.0.4-bin.zip</a></p>
+
+<p>下载解压到 <code>D:\local\maven-3.0.4</code></p>
+
+<p>配置maven 环境变量</p>
+
+<p>系统变量：<code>MAVEN_HOME = D:\local\maven-3.0.4</code></p>
+
+<p>用户变量：<code>PATH = %MAVEN_HOME%\bin</code></p>
+
+<p>验证结果：<code>mvn --version</code></p>
+
+<p>修改maven仓库存放位置</p>
+
+<p>文件： <code>D:\local\maven-3.0.4\conf\settings.xml</code></p>
+
+<p>修改</p>
+
+<pre class="terminal"><code><localRepository>/path/to/local/repo</localRepository></code></pre>
+
+
+<p>为</p>
+
+<pre class="terminal"><code><localRepository>D:\local\maven-3.0.4\repo</localRepository></code></pre>
+
+
+<p>执行：</p>
+
+<pre class="terminal"><code>mvn help:system</code></pre>
+
+
+<p>打印所有的java系统属性和环境变量。如果运行的过程中没有错误，打开我们仓库（ <code>D:\local\maven-3.0.4\repo</code> ）会发现里面多了一些文件。这些文件就是我们从maven的中央仓库下载到本地仓库的。</p>
+
+<p>maven项目初体验</p>
+
+<p>命令行方式创建</p>
+
+<pre class="terminal"><code>cd d:\local\maven-3.0.4
+mvn archetype:create -DgroupId=com.addcn.android.maven.hello -DartifactId=hello -DpackageName=com.addcn.android.maven.hello -Dversion=1.0
+</code></pre>
+
+
+<p>可见<code>d:\local\maven-3.0.4\hello</code>生成测试的项目</p>
+
+<p>编译项目代码</p>
+
+<p>项目创建完成，把它构建成我们eclipse可以导入的项目</p>
+
+<pre class="terminal"><code>cd d:\local\maven-3.0.4
+mvn clean compile</code></pre>
+
+
+<p>clean 告诉maven清理输入出目录target，compile告诉maven编译项目主代码</p>
+
+<p>编译完后，项目的目录结构还不是我们想要的eclipse的项目结构，是不能导入到eclipse中的。执行命令可得到我们需要的项目目录：</p>
+
+<pre class="terminal"><code>mvn eclipse:eclipse</code></pre>
+
+
+<h3>2、安装maven-android-sdk-deployer</h3>
+
+<p><a href="https://github.com/mosabua/maven-android-sdk-deployer">https://github.com/mosabua/maven-android-sdk-deployer</a></p>
+
+<p>下载解压到 <code>D:\Program Files\eclipse\maven-android-sdk-deployer</code></p>
+
+<p>执行以下命令，将android sdk的包放入到本地仓库</p>
+
+<pre class="terminal"><code>cd D:\Program Files\eclipse\maven-android-sdk-deployer
+mvn install -P 2.3.3
+mvn install -P 4.2.2
+mvn install
+</code></pre>
+
+
+<h3>3、安装eclipse插件</h3>
+
+<p>eclipse菜单栏中选择Help，然后选择Install New Software&#8230;.，接着在Install对话框中店家Work with字段边上的Add按钮，得到一个新的Add Repository对话框，在Name字段中输入名称如m2e，Location字段中输入对应的地址如http://m2eclipse.sonatype.org/sites/m2e，然后点击Ok。</p>
+
+<p>m2eclipse插件
+<a href="http://m2eclipse.sonatype.org/sites/m2e">http://m2eclipse.sonatype.org/sites/m2e</a></p>
+
+<p>m2e-extras
+<a href="http://m2eclipse.sonatype.org/sites/m2e-extras/">http://m2eclipse.sonatype.org/sites/m2e-extras/</a></p>
+
+<h3>4、修改eclipse中M2_REPO路径</h3>
+
+<p>修改maven默认的本地库的路径<code>${user}\.m2\repository\</code>为我们自定义的<code>D:\local\maven-3.0.4\repo</code></p>
+
+<p>（1）、增加系统变量： <code>M2_REPO = D:\local\maven-3.0.4\repo</code></p>
+
+<p>（2）、系统变量Path增加M2_REPO路径，<code>PATH = %M2_REPO%</code></p>
+
+<p>（3）、eclipse->preferences->maven->installations下add一个maven，如： <code>D:\local\maven-3.0.4\repo</code></p>
+
+<p>（4）、eclipse->preferences->maven->installations下修改user setting 选项为：<code>D:\local\maven-3.0.4\repo\conf \setting.xml</code> ，并点击update settings</p>
+
+<p>（5）、点击配置窗口的apply按钮，重启myeclipse，会发现M2_REPO变量的值变成了 <code>D:\local\maven-3.0.4\repo</code></p>
+
+<h3>5、在已经存在的android项目根目录增加<code>pop.xml</code>文件</h3>
+
+<p>pop.xml配置文件参考</p>
+
+<p>（1）、 下载samples文件（<a href="https://code.google.com/p/maven-android-plugin/wiki/Samples">https://code.google.com/p/maven-android-plugin/wiki/Samples</a>），解压进入helloflashlight目录</p>
+
+<p>（2）、github项目文件配置（<a href="https://github.com/github/android/tree/master/app">https://github.com/github/android/tree/master/app</a>）</p>
+
+<p>（3）、eclipse新建maven项目生成的pop.xml参考（见<a href="http://blog.csdn.net/jason20ming/article/details/7031734%E5%8F%8Ahttp://www.cnblogs.com/luhouxiang/archive/2011/08/29/2158096.html">http://blog.csdn.net/jason20ming/article/details/7031734及http://www.cnblogs.com/luhouxiang/archive/2011/08/29/2158096.html</a>）</p>
+
+<h3>6、构建测试</h3>
+
+<pre class="terminal"><code>cd D:\mobile\android\Hello
+mvn clean install
+
+[ERROR] Failed to execute goal on project hello: Could not resolve dependencies
+for project com.addcn.android.maven.hello:hello:apk:1.0.0-SNAPSHOT: Failure to f
+ind com.google.android:android:jar:4.2.2 in http://repo.maven.apache.org/maven2
+was cached in the local repository, resolution will not be reattempted until the
+ update interval of central has elapsed or updates are forced -> [Help 1]
+</code></pre>
+
+
+<p>提示没有找到<code>android:jar:4.2.2</code>文件，也提示解决方法：</p>
+
+<p><code>[ERROR] D:\Program Files\eclipse\sdk\tools\android update sdk --no-ui --obsolete --force</code></p>
+
+<p>执行它会安装全部sdk，我们只安装需要的4.2.2版本的。</p>
+
+<p>执行以下命令：</p>
+
+<pre class="terminal"><code>mvn install:install-file -Dfile=d:\Progra~1\eclipse\sdk\platforms\android-4.2\android.jar -DgroupId=com.google.android -DartifactId=android -Dversion=4.2.2 -Dpackaging=jar
+</code></pre>
+
+
+<p>会从sdk目录下複製4.2版本的<code>android.jar</code>到仓库目录。</p>
 ]]></content>
   </entry>
   
@@ -208,6 +348,20 @@ ssh -T git@github.com
 
 
 <p>没有错误可以看到提示的，Hi,addcns! You&#8217;ve successfully authenticated&#8230;</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Octopress自定义主题]]></title>
+    <link href="http://addcn.github.com/blog/2013/04/01/octopress-custom-theme/"/>
+    <updated>2013-04-01T11:16:00+08:00</updated>
+    <id>http://addcn.github.com/blog/2013/04/01/octopress-custom-theme</id>
+    <content type="html"><![CDATA[<p><strong> 新增主题 </strong></p>
+
+<p>cd octopress
+git clone git://github.com/addcns/Octopress-Theme-Simple.git .themes/simple
+rake install[&#8216;simple&#8217;]
+rake generate</p>
 ]]></content>
   </entry>
   

@@ -4,7 +4,7 @@
   <title><![CDATA[Category: github | uedao]]></title>
   <link href="http://addcn.github.com/blog/categories/github/atom.xml" rel="self"/>
   <link href="http://addcn.github.com/"/>
-  <updated>2013-04-02T13:33:35+08:00</updated>
+  <updated>2013-04-02T14:32:00+08:00</updated>
   <id>http://addcn.github.com/</id>
   <author>
     <name><![CDATA[addcn]]></name>
@@ -12,20 +12,6 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
-  
-  <entry>
-    <title type="html"><![CDATA[Octopress自定义主题]]></title>
-    <link href="http://addcn.github.com/blog/2013/04/02/octopress-custom-theme/"/>
-    <updated>2013-04-02T11:16:00+08:00</updated>
-    <id>http://addcn.github.com/blog/2013/04/02/octopress-custom-theme</id>
-    <content type="html"><![CDATA[<p><strong> 新增主题 </strong></p>
-
-<p>cd octopress
-git clone git://github.com/addcns/Octopress-Theme-Simple.git .themes/simple
-rake install['simple']
-rake generate</p>
-]]></content>
-  </entry>
   
   <entry>
     <title type="html"><![CDATA[Octopress初步设置]]></title>
@@ -97,6 +83,20 @@ disqus_show_comment_count: true
 <li><a href="http://blog.eddie.com.tw/2011/12/05/add-catetories-to-sidebar-in-octopress/">幫你的Octopress增加文章分類</a></li>
 </ul>
 
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Octopress自定义主题]]></title>
+    <link href="http://addcn.github.com/blog/2013/04/01/octopress-custom-theme/"/>
+    <updated>2013-04-01T11:16:00+08:00</updated>
+    <id>http://addcn.github.com/blog/2013/04/01/octopress-custom-theme</id>
+    <content type="html"><![CDATA[<p><strong> 新增主题 </strong></p>
+
+<p>cd octopress
+git clone git://github.com/addcns/Octopress-Theme-Simple.git .themes/simple
+rake install['simple']
+rake generate</p>
 ]]></content>
   </entry>
   

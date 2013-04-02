@@ -1,0 +1,381 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>maven构建android项目 - uedao</title>
+  <meta name="author" content="addcn">
+
+  
+  <meta name="description" content="现有android项目环境 java安装路径：C:\Program Files\Java\jdk1.6.0_24 eclipse安装路径：D:\Program Files\eclipse android sdk安装路径：D:\Program Files\eclipse\sdk &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://addcn.github.com/blog/2013/04/02/maven-android-eclipse">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="uedao" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/lib/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">uedao</a></h1>
+  
+    <h2>分享是一种精神，与技术高低无关！</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:addcn.github.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Maven构建android项目</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-04-02T14:20:00+08:00" pubdate data-updated="true">Apr 2<span>nd</span>, 2013</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>现有android项目环境</p>
+
+<p>java安装路径：<code>C:\Program Files\Java\jdk1.6.0_24</code></p>
+
+<p>eclipse安装路径：<code>D:\Program Files\eclipse</code></p>
+
+<p>android sdk安装路径：<code>D:\Program Files\eclipse\sdk</code></p>
+
+<p>下面搭建maven环境集成现有的android项目</p>
+
+<h3>1、安装maven</h3>
+
+<p><a href="http://ftp.tc.edu.tw/pub/Apache/maven/maven-3/3.0.4/binaries/apache-maven-3.0.4-bin.zip">http://ftp.tc.edu.tw/pub/Apache/maven/maven-3/3.0.4/binaries/apache-maven-3.0.4-bin.zip</a></p>
+
+<p>下载解压到 <code>D:\local\maven-3.0.4</code></p>
+
+<p>配置maven 环境变量</p>
+
+<p>系统变量：<code>MAVEN_HOME = D:\local\maven-3.0.4</code></p>
+
+<p>用户变量：<code>PATH = %MAVEN_HOME%\bin</code></p>
+
+<p>验证结果：<code>mvn --version</code></p>
+
+<p>修改maven仓库存放位置</p>
+
+<p>文件： <code>D:\local\maven-3.0.4\conf\settings.xml</code></p>
+
+<p>修改</p>
+
+<pre class="terminal"><code><localRepository>/path/to/local/repo</localRepository></code></pre>
+
+
+<p>为</p>
+
+<pre class="terminal"><code><localRepository>D:\local\maven-3.0.4\repo</localRepository></code></pre>
+
+
+<p>执行：</p>
+
+<pre class="terminal"><code>mvn help:system</code></pre>
+
+
+<p>打印所有的java系统属性和环境变量。如果运行的过程中没有错误，打开我们仓库（ <code>D:\local\maven-3.0.4\repo</code> ）会发现里面多了一些文件。这些文件就是我们从maven的中央仓库下载到本地仓库的。</p>
+
+<p>maven项目初体验</p>
+
+<p>命令行方式创建</p>
+
+<pre class="terminal"><code>cd d:\local\maven-3.0.4
+mvn archetype:create -DgroupId=com.addcn.android.maven.hello -DartifactId=hello -DpackageName=com.addcn.android.maven.hello -Dversion=1.0
+</code></pre>
+
+
+<p>可见<code>d:\local\maven-3.0.4\hello</code>生成测试的项目</p>
+
+<p>编译项目代码</p>
+
+<p>项目创建完成，把它构建成我们eclipse可以导入的项目</p>
+
+<pre class="terminal"><code>cd d:\local\maven-3.0.4
+mvn clean compile</code></pre>
+
+
+<p>clean 告诉maven清理输入出目录target，compile告诉maven编译项目主代码</p>
+
+<p>编译完后，项目的目录结构还不是我们想要的eclipse的项目结构，是不能导入到eclipse中的。执行命令可得到我们需要的项目目录：</p>
+
+<pre class="terminal"><code>mvn eclipse:eclipse</code></pre>
+
+
+<h3>2、安装maven-android-sdk-deployer</h3>
+
+<p><a href="https://github.com/mosabua/maven-android-sdk-deployer">https://github.com/mosabua/maven-android-sdk-deployer</a></p>
+
+<p>下载解压到 <code>D:\Program Files\eclipse\maven-android-sdk-deployer</code></p>
+
+<p>执行以下命令，将android sdk的包放入到本地仓库</p>
+
+<pre class="terminal"><code>cd D:\Program Files\eclipse\maven-android-sdk-deployer
+mvn install -P 2.3.3
+mvn install -P 4.2.2
+mvn install
+</code></pre>
+
+
+<h3>3、安装eclipse插件</h3>
+
+<p>eclipse菜单栏中选择Help，然后选择Install New Software&#8230;.，接着在Install对话框中店家Work with字段边上的Add按钮，得到一个新的Add Repository对话框，在Name字段中输入名称如m2e，Location字段中输入对应的地址如http://m2eclipse.sonatype.org/sites/m2e，然后点击Ok。</p>
+
+<p>m2eclipse插件
+<a href="http://m2eclipse.sonatype.org/sites/m2e">http://m2eclipse.sonatype.org/sites/m2e</a></p>
+
+<p>m2e-extras
+<a href="http://m2eclipse.sonatype.org/sites/m2e-extras/">http://m2eclipse.sonatype.org/sites/m2e-extras/</a></p>
+
+<h3>4、修改eclipse中M2_REPO路径</h3>
+
+<p>修改maven默认的本地库的路径<code>${user}\.m2\repository\</code>为我们自定义的<code>D:\local\maven-3.0.4\repo</code></p>
+
+<p>（1）、增加系统变量： <code>M2_REPO = D:\local\maven-3.0.4\repo</code></p>
+
+<p>（2）、系统变量Path增加M2_REPO路径，<code>PATH = %M2_REPO%</code></p>
+
+<p>（3）、eclipse->preferences->maven->installations下add一个maven，如： <code>D:\local\maven-3.0.4\repo</code></p>
+
+<p>（4）、eclipse->preferences->maven->installations下修改user setting 选项为：<code>D:\local\maven-3.0.4\repo\conf \setting.xml</code> ，并点击update settings</p>
+
+<p>（5）、点击配置窗口的apply按钮，重启myeclipse，会发现M2_REPO变量的值变成了 <code>D:\local\maven-3.0.4\repo</code></p>
+
+<h3>5、在已经存在的android项目根目录增加<code>pop.xml</code>文件</h3>
+
+<p>pop.xml配置文件参考</p>
+
+<p>（1）、 下载samples文件（<a href="https://code.google.com/p/maven-android-plugin/wiki/Samples">https://code.google.com/p/maven-android-plugin/wiki/Samples</a>），解压进入helloflashlight目录</p>
+
+<p>（2）、github项目文件配置（<a href="https://github.com/github/android/tree/master/app">https://github.com/github/android/tree/master/app</a>）</p>
+
+<p>（3）、eclipse新建maven项目生成的pop.xml参考（见<a href="http://blog.csdn.net/jason20ming/article/details/7031734%E5%8F%8Ahttp://www.cnblogs.com/luhouxiang/archive/2011/08/29/2158096.html">http://blog.csdn.net/jason20ming/article/details/7031734及http://www.cnblogs.com/luhouxiang/archive/2011/08/29/2158096.html</a>）</p>
+
+<h3>6、构建测试</h3>
+
+<pre class="terminal"><code>cd D:\mobile\android\Hello
+mvn clean install
+
+[ERROR] Failed to execute goal on project hello: Could not resolve dependencies
+for project com.addcn.android.maven.hello:hello:apk:1.0.0-SNAPSHOT: Failure to f
+ind com.google.android:android:jar:4.2.2 in http://repo.maven.apache.org/maven2
+was cached in the local repository, resolution will not be reattempted until the
+ update interval of central has elapsed or updates are forced -> [Help 1]
+</code></pre>
+
+
+<p>提示没有找到<code>android:jar:4.2.2</code>文件，也提示解决方法：</p>
+
+<p><code>[ERROR] D:\Program Files\eclipse\sdk\tools\android update sdk --no-ui --obsolete --force</code></p>
+
+<p>执行它会安装全部sdk，我们只安装需要的4.2.2版本的。</p>
+
+<p>执行以下命令：</p>
+
+<pre class="terminal"><code>mvn install:install-file -Dfile=d:\Progra~1\eclipse\sdk\platforms\android-4.2\android.jar -DgroupId=com.google.android -DartifactId=android -Dversion=4.2.2 -Dpackaging=jar
+</code></pre>
+
+
+<p>会从sdk目录下複製4.2版本的<code>android.jar</code>到仓库目录。</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">addcn</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-04-02T14:20:00+08:00" pubdate data-updated="true">Apr 2<span>nd</span>, 2013</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/android/'>android</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://addcn.github.com/blog/2013/04/02/maven-android-eclipse/" data-via="" data-counturl="http://addcn.github.com/blog/2013/04/02/maven-android-eclipse/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2013/04/01/octopress-custom-config/" title="Previous Post: Octopress初步设置">&laquo; Octopress初步设置</a>
+      
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2013/04/02/maven-android-eclipse/">maven构建android项目</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/04/01/octopress-custom-config/">Octopress初步设置</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/04/01/github-octopress/">在Github上搭建Octopress博客</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/04/01/octopress-custom-theme/">Octopress自定义主题</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/03/16/jekyll-chinese-on-github/">Jekyll在Github上中文问题</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+<h1>分类</h1>
+<span class='categories_tag'> <a href='/blog/categories/android' style='font-size: 130.0%'>Android(2)</a>  <a href='/blog/categories/github' style='font-size: 160.0%'>Github(4)</a> </span>
+</section>
+
+
+<section>
+  <h1>新浪微博</h1>
+  <ul id="weibo">
+    <li>
+      <iframe
+        width="100%"
+        height="550"
+        class="share_self"
+        frameborder="0"
+        scrolling="no"
+        src="http://widget.weibo.com/weiboshow/index.php?width=0&height=550&ptype=1&speed=0&skin=&isTitle=0&noborder=1&isWeibo=1&isFans=&uid=1640234245&verifier=a7415e95">
+      </iframe>
+    </li>
+  </ul>
+</section>
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2013 - addcn -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>
