@@ -4,7 +4,7 @@
   <title><![CDATA[Category: github | uedao]]></title>
   <link href="http://addcn.github.com/blog/categories/github/atom.xml" rel="self"/>
   <link href="http://addcn.github.com/"/>
-  <updated>2013-04-02T14:37:05+08:00</updated>
+  <updated>2013-04-03T10:56:38+08:00</updated>
   <id>http://addcn.github.com/</id>
   <author>
     <name><![CDATA[addcn]]></name>
@@ -74,6 +74,10 @@ disqus_show_comment_count: true
 </code></pre>
 
 
+<p><strong> 1、查看rake命令 </strong></p>
+
+<p>rake -T</p>
+
 <p><strong>4、参考文章</strong></p>
 
 <ul>
@@ -81,6 +85,7 @@ disqus_show_comment_count: true
 <li><a href="http://programus.github.com/blog/2012/03/03/add-weibo-sidebar-into-octopress/">为Octopress博客追加新浪微博侧栏</a></li>
 <li><a href="http://ccaloha.cc/blog/2011/10/25/xin-zeng-liu-yan-gong-neng-in-octopress/">新增留言功能in Octopress</a></li>
 <li><a href="http://blog.eddie.com.tw/2011/12/05/add-catetories-to-sidebar-in-octopress/">幫你的Octopress增加文章分類</a></li>
+<li><a href="http://yanping.me/cn/blog/2012/03/18/github-pages-step-by-step/">Github Pages极简教程</a></li>
 </ul>
 
 ]]></content>
@@ -306,6 +311,17 @@ $ ruby dk.rb install</code>
 <li><a href="http://daringfireball.net/projects/markdown/syntax">http://daringfireball.net/projects/markdown/syntax</a></li>
 </ul>
 
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[hello github]]></title>
+    <link href="http://addcn.github.com/blog/2011/04/15/hello-github/"/>
+    <updated>2011-04-15T18:43:00+08:00</updated>
+    <id>http://addcn.github.com/blog/2011/04/15/hello-github</id>
+    <content type="html"><![CDATA[<p><strong>github</strong></p>
+
+<p>githubgithubgithubgithubgithubgithubgithub</p>
 ]]></content>
   </entry>
   
