@@ -4,7 +4,7 @@
   <title><![CDATA[Category: github | uedao]]></title>
   <link href="http://addcn.github.com/blog/categories/github/atom.xml" rel="self"/>
   <link href="http://addcn.github.com/"/>
-  <updated>2013-04-08T15:39:06+08:00</updated>
+  <updated>2013-04-08T15:54:00+08:00</updated>
   <id>http://addcn.github.com/</id>
   <author>
     <name><![CDATA[addcn]]></name>
@@ -102,6 +102,15 @@ disqus_show_comment_count: true
 git clone git://github.com/addcns/Octopress-Theme-Simple.git .themes/simple
 rake install['simple']
 rake generate</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[hello octopress]]></title>
+    <link href="http://addcn.github.com/blog/2012/04/27/hello-octopress/"/>
+    <updated>2012-04-27T09:34:00+08:00</updated>
+    <id>http://addcn.github.com/blog/2012/04/27/hello-octopress</id>
+    <content type="html"><![CDATA[<p>my first post to octopresss.</p>
 ]]></content>
   </entry>
   
@@ -310,17 +319,6 @@ $ ruby dk.rb install</code>
 <li><a href="http://daringfireball.net/projects/markdown/syntax">http://daringfireball.net/projects/markdown/syntax</a></li>
 </ul>
 
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[hello github]]></title>
-    <link href="http://addcn.github.com/blog/2011/04/15/hello-github/"/>
-    <updated>2011-04-15T18:43:00+08:00</updated>
-    <id>http://addcn.github.com/blog/2011/04/15/hello-github</id>
-    <content type="html"><![CDATA[<p><strong>github</strong></p>
-
-<p>githubgithubgithubgithubgithubgithubgithub</p>
 ]]></content>
   </entry>
   

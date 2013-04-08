@@ -4,7 +4,7 @@
   <title><![CDATA[uedao]]></title>
   <link href="http://addcn.github.com/atom.xml" rel="self"/>
   <link href="http://addcn.github.com/"/>
-  <updated>2013-04-08T15:39:03+08:00</updated>
+  <updated>2013-04-08T15:53:58+08:00</updated>
   <id>http://addcn.github.com/</id>
   <author>
     <name><![CDATA[addcn]]></name>
@@ -386,6 +386,15 @@ rake generate</p>
   </entry>
   
   <entry>
+    <title type="html"><![CDATA[hello octopress]]></title>
+    <link href="http://addcn.github.com/blog/2012/04/27/hello-octopress/"/>
+    <updated>2012-04-27T09:34:00+08:00</updated>
+    <id>http://addcn.github.com/blog/2012/04/27/hello-octopress</id>
+    <content type="html"><![CDATA[<p>my first post to octopresss.</p>
+]]></content>
+  </entry>
+  
+  <entry>
     <title type="html"><![CDATA[Jekyll在Github上中文问题]]></title>
     <link href="http://addcn.github.com/blog/2012/03/16/jekyll-chinese-on-github/"/>
     <updated>2012-03-16T18:43:00+08:00</updated>
@@ -676,17 +685,6 @@ Run as -> Run Configuration 选择AVD2.2
 <li><a href="http://www.cnblogs.com/Jackeyzhang/archive/2010/04/02/1703068.html">http://www.cnblogs.com/Jackeyzhang/archive/2010/04/02/1703068.html</a></li>
 </ul>
 
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[hello github]]></title>
-    <link href="http://addcn.github.com/blog/2011/04/15/hello-github/"/>
-    <updated>2011-04-15T18:43:00+08:00</updated>
-    <id>http://addcn.github.com/blog/2011/04/15/hello-github</id>
-    <content type="html"><![CDATA[<p><strong>github</strong></p>
-
-<p>githubgithubgithubgithubgithubgithubgithub</p>
 ]]></content>
   </entry>
   
