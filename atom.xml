@@ -4,7 +4,7 @@
   <title><![CDATA[uedao]]></title>
   <link href="http://addcn.github.com/atom.xml" rel="self"/>
   <link href="http://addcn.github.com/"/>
-  <updated>2013-04-08T14:44:58+08:00</updated>
+  <updated>2013-04-08T15:39:03+08:00</updated>
   <id>http://addcn.github.com/</id>
   <author>
     <name><![CDATA[addcn]]></name>
@@ -12,6 +12,21 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[ppt分享]]></title>
+    <link href="http://addcn.github.com/blog/2013/04/08/ppt-share/"/>
+    <updated>2013-04-08T14:54:00+08:00</updated>
+    <id>http://addcn.github.com/blog/2013/04/08/ppt-share</id>
+    <content type="html"><![CDATA[<h3>1、life is a journey</h3>
+
+<p><a href="http://t.cn/zTbCu0T" title="下载ppt"><img src="http://addcn.github.com/download/images/life-is-a-journey.png" alt="life-is-a-journey.ppt" /></a></p>
+
+<h3>2、29 ways to stay creative</h3>
+
+<p><a href="http://t.cn/zTbC3GH" title="下载ppt"><img src="http://addcn.github.com/download/images/29-ways-to-stay-creative.png" alt="29 ways to stay creative.ppt" /></a></p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[maven构建android项目]]></title>
