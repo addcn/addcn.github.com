@@ -10,5 +10,7 @@
 			jQuery("#header nav li").attr("class", "menu-item");
 			jQuery("#header nav li#nav-archives").attr("class", "menu-item current-menu-item");
 		}
+		//
+		jQuery.scrolltop.scrollStart();
 	});
 })(jQuery);
