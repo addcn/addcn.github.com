@@ -68,7 +68,7 @@ Apr 01 2013 &hellip;">
 				</li>
 			</ul>
 		</div>
-	</div>-->
+	</div>
 
 	<header role="banner"><hgroup>
   <h1><a href="/">uedao</a></h1>
@@ -95,7 +95,28 @@ Apr 01 2013 &hellip;">
   <li><a href="/blog/archives">Archives</a></li>
 </ul>
 
-</nav>
+</nav>-->
+
+	<header id="header">
+		<div class="inner">
+			<hgroup class="logo">
+				<h3><a title="uedao" href="/"><img class="d-None" alt="uedao" src="images/logo.png">uedao</a></h3>
+			</hgroup>
+			<!--
+			<form action="/" class="search" method="get">
+				<span class="d-None">文章搜索:</span><input type="text" class="sText" name="s" value="输入关键字回车直接搜索" onblur="if (this.value == '') {this.value = '输入关键字回车直接搜索';}" onfocus="if (this.value == '输入关键字回车直接搜索') {this.value = '';}">
+			</form>-->
+			<nav class="nav">
+				<ul>
+					<li class="menu-item current-menu-item" id="nav-index"><a href="/">博客首页</a></li>
+					<li class="menu-item" id="nav-archives"><a href="/blog/archives">文章归档</a></li>
+					<li class="menu-item"><a href="/atom.xml" target="_blank">RSS订阅</a></li>
+					<li class="menu-item"><a href="http://weibo.com/addcn" target="_blank">新浪微博</a></li>
+				</ul>
+			</nav>
+		</div>
+	</header>
+
 	<div id="main">
 		<div id="content">
 		  <div>
@@ -319,6 +340,22 @@ Apr 01 2013 &hellip;">
 
 
 
+
+
+<script>
+$(document).ready(function() {
+    var pathname = window.location.pathname;
+    $("#header nav li").each(function(index) {
+        if ( pathname.toUpperCase().indexOf("archives") != -1){
+			$("#header nav li").attr("className", "menu-item");
+			$("#header nav li.nav-archives").attr("className", "menu-item current-menu-item");
+		}else{
+			$("#header nav li").attr("className", "menu-item");
+			$("#header nav li.nav-index").attr("className", "menu-item current-menu-item");
+		}
+    });
+});
+</script>
 
 </body>
 </html>
