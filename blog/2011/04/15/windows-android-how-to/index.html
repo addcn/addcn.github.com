@@ -29,6 +29,7 @@
   <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
 <link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
 <link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="/javascripts/custom-header.js"></script>
 
   
 
@@ -343,6 +344,7 @@ Run as -> Run Configuration 选择AVD2.2
   Copyright &copy; 2013 - addcn -
   <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
 </p>
+<script type="text/javascript" src="/javascripts/custom-footer.js"></script>
 
 </footer>
 	
@@ -373,22 +375,6 @@ Run as -> Run Configuration 选择AVD2.2
 
 
 
-
-
-<script>
-$(document).ready(function() {
-    var pathname = window.location.pathname;
-    $("#header nav li").each(function(index) {
-        if ( pathname.toUpperCase().indexOf("archives") != -1){
-			$("#header nav li").attr("className", "menu-item");
-			$("#header nav li.nav-archives").attr("className", "menu-item current-menu-item");
-		}else{
-			$("#header nav li").attr("className", "menu-item");
-			$("#header nav li.nav-index").attr("className", "menu-item current-menu-item");
-		}
-    });
-});
-</script>
 
 </body>
 </html>
