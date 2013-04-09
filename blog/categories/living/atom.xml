@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: living | uedao]]></title>
+  <link href="http://addcn.github.com/blog/categories/living/atom.xml" rel="self"/>
+  <link href="http://addcn.github.com/"/>
+  <updated>2013-04-09T15:15:19+08:00</updated>
+  <id>http://addcn.github.com/</id>
+  <author>
+    <name><![CDATA[addcn]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[月份总结201209]]></title>
+    <link href="http://addcn.github.com/blog/2013/01/06/month-summary/"/>
+    <updated>2013-01-06T14:54:00+08:00</updated>
+    <id>http://addcn.github.com/blog/2013/01/06/month-summary</id>
+    <content type="html"><![CDATA[<p>在新浪微薄上评论读书的话题，@萧秋水回复说“最高的记录是1个月60本”，才感到自己的努力还远远不够。最可怕的事情就是，比你条件好的人，比你还要努力。</p>
+]]></content>
+  </entry>
+  
+</feed>

@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: soft | uedao]]></title>
-  <link href="http://addcn.github.com/blog/categories/soft/atom.xml" rel="self"/>
+  <title><![CDATA[Tag: ppt | uedao]]></title>
+  <link href="http://addcn.github.com/tags/ppt/atom.xml" rel="self"/>
   <link href="http://addcn.github.com/"/>
-  <updated>2013-04-08T20:07:01+08:00</updated>
+  <updated>2013-04-09T15:15:23+08:00</updated>
   <id>http://addcn.github.com/</id>
   <author>
     <name><![CDATA[addcn]]></name>
@@ -14,13 +14,16 @@
 
   
   <entry>
-    <title type="html"><![CDATA[ppt分享]]></title>
-    <link href="http://addcn.github.com/blog/2013/04/08/ppt-share/"/>
+    <title type="html"><![CDATA[漂亮的ppt分享]]></title>
+    <link href="http://addcn.github.com/blog/2013/04/08/pretty-ppt-share/"/>
     <updated>2013-04-08T14:54:00+08:00</updated>
-    <id>http://addcn.github.com/blog/2013/04/08/ppt-share</id>
+    <id>http://addcn.github.com/blog/2013/04/08/pretty-ppt-share</id>
     <content type="html"><![CDATA[<h3>1、life is a journey</h3>
 
 <p><a href="http://t.cn/zTbCu0T" title="下载ppt"><img src="/download/images/life-is-a-journey.png" alt="life-is-a-journey.ppt" /></a></p>
+
+<!-- more -->
+
 
 <h3>2、29 ways to stay creative</h3>
 

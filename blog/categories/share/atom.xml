@@ -1,0 +1,315 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: share | uedao]]></title>
+  <link href="http://addcn.github.com/blog/categories/share/atom.xml" rel="self"/>
+  <link href="http://addcn.github.com/"/>
+  <updated>2013-04-09T15:15:19+08:00</updated>
+  <id>http://addcn.github.com/</id>
+  <author>
+    <name><![CDATA[addcn]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[漂亮的ppt分享]]></title>
+    <link href="http://addcn.github.com/blog/2013/04/08/pretty-ppt-share/"/>
+    <updated>2013-04-08T14:54:00+08:00</updated>
+    <id>http://addcn.github.com/blog/2013/04/08/pretty-ppt-share</id>
+    <content type="html"><![CDATA[<h3>1、life is a journey</h3>
+
+<p><a href="http://t.cn/zTbCu0T" title="下载ppt"><img src="/download/images/life-is-a-journey.png" alt="life-is-a-journey.ppt" /></a></p>
+
+<!-- more -->
+
+
+<h3>2、29 ways to stay creative</h3>
+
+<p><a href="http://t.cn/zTbC3GH" title="下载ppt"><img src="/download/images/29-ways-to-stay-creative.png" alt="29 ways to stay creative.ppt" /></a></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Octopress初步设置]]></title>
+    <link href="http://addcn.github.com/blog/2013/04/01/octopress-custom-config/"/>
+    <updated>2013-04-01T18:43:00+08:00</updated>
+    <id>http://addcn.github.com/blog/2013/04/01/octopress-custom-config</id>
+    <content type="html"><![CDATA[<p><strong> 1、编码问题 </strong></p>
+
+<p>rake generate Liquid Exception:invalid byte sequence in UTF-8 in post</p>
+
+<p>为了支持中文UTF-8编码，对Windows环境变量配置如下：</p>
+
+<p><code>LANG=zh_CN.UTF-8</code></p>
+
+<p><code>LC_ALL=zh_CN.UTF-8</code></p>
+
+<p>也可在直接在Windows的cmd窗口下运行命令</p>
+
+<p><code>set LANG=zh_CN.UTF-8</code>
+<code>set LC_ALL=zh_CN.UTF-8</code></p>
+
+<p>_config.yml另存为utf-8编码格式文件</p>
+
+<p>文章_post使用utf-8编码文件</p>
+
+<p><strong>2、新浪微博侧栏</strong></p>
+
+<ul>
+<li>增加文件：<code>source/_includes/asides/weibo.html</code></li>
+<li>增加配置：<code>_config.yml</code></li>
+</ul>
+
+
+<pre class="terminal"><code>
+default_asides: [asides/recent_posts.html, asides/weibo.html, asides/github.html, asides/delicious.html, asides/pinboard.html, asides/googleplus.html]
+
+# Weibo
+# Please refer to http://weibo.com/tool/weiboshow to get your uid and verifier.
+weibo_uid: 1640234245
+weibo_verifier: a7415e95
+weibo_fansline: 0 # How many lines for the fan list
+weibo_show: true # Whether you want your weibo content to be shown
+weibo_pic: true # Whether you want the pictures in weibo to be shown
+weibo_skin: 10 # Please refer to http://weibo.com/tool/weiboshow
+weibo_share: true # Whether show the sharing button
+</code></pre>
+
+
+<p><strong>3、文章留言功能</strong></p>
+
+<ul>
+<li>增加配置：<code>_config.yml</code></li>
+</ul>
+
+
+<pre class="terminal"><code>
+# Disqus Comments
+disqus_short_name:addcn
+disqus_show_comment_count: true
+</code></pre>
+
+
+<p><strong> 1、查看rake命令 </strong></p>
+
+<p>rake -T</p>
+
+<p><strong>4、参考文章</strong></p>
+
+<ul>
+<li><a href="http://yanping.me/cn/blog/2012/01/07/theming-and-customization/">为Octopress修改主题和自定义样式</a></li>
+<li><a href="http://programus.github.com/blog/2012/03/03/add-weibo-sidebar-into-octopress/">为Octopress博客追加新浪微博侧栏</a></li>
+<li><a href="http://ccaloha.cc/blog/2011/10/25/xin-zeng-liu-yan-gong-neng-in-octopress/">新增留言功能in Octopress</a></li>
+<li><a href="http://blog.eddie.com.tw/2011/12/05/add-catetories-to-sidebar-in-octopress/">幫你的Octopress增加文章分類</a></li>
+<li><a href="http://yanping.me/cn/blog/2012/03/18/github-pages-step-by-step/">Github Pages极简教程</a></li>
+</ul>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[在Github搭建Octopress博客]]></title>
+    <link href="http://addcn.github.com/blog/2013/04/01/github-octopress/"/>
+    <updated>2013-04-01T14:19:00+08:00</updated>
+    <id>http://addcn.github.com/blog/2013/04/01/github-octopress</id>
+    <content type="html"><![CDATA[<h2>一、安装octopress</h2>
+
+<p><strong>1、注册帐号</strong>
+<a href="https://github.com/users">https://github.com/users</a></p>
+
+<p><strong>2、安装octopress</strong>
+参照官方安装指引<a href="http://octopress.org/docs/">http://octopress.org/docs/</a></p>
+
+<pre class="terminal"><code>
+git clone git://github.com/imathis/octopress.git octopress
+cd octopress
+ruby --version  # Should report Ruby 1.9.3，我的是1.9.2不管它
+gem install bundler
+bundle install
+rake install
+</code></pre>
+
+
+<p><strong>3、github新建立版本库</strong></p>
+
+<p>github上<a href="https://github.com/new">https://github.com/new</a> 新建repo（参考<a href="http://xuhehuan.com/783.html">http://xuhehuan.com/783.html</a>）</p>
+
+<pre class="terminal"><code>
+Repository name addcns.github.com
+Description (optional)  octopress
+Initialize this repository with a README
+</code></pre>
+
+
+<p><strong>4、发布Octopress</strong></p>
+
+<pre class="terminal"><code>
+rake setup_github_pages
+git@addcns.github.com:addcns/addcns.github.com #注意多帐号，使用git@addcns.github.com:addcns，而非git@github.com:addcns
+rake install #安装默认主题
+rake generate #生成静态页面
+rake preview #本地预览，http://localhost:4000/
+rake new_post["titile"] #创建文章
+rake new_page[super-awesome] #创建页面
+rake deploy #发布到master分支,访问http:/addcns.github.com
+git add . #源文件发布source分支
+git commit -m "init octopress"
+git push origin source
+</code></pre>
+
+
+<p>最后访问见<a href="http://addcns.github.com">http://addcns.github.com</a></p>
+
+<h2>二、多个GitHub帐号的SSH key切换</h2>
+
+<p>为了测试注册两个github帐号，rake deploy时候会提示输入默认的id_rsa的密钥，所以需要切换帐号。参考<a href="http://www.zikercn.com/node/20">http://www.zikercn.com/node/20</a></p>
+
+<p><strong>1、生成id_rsa_addcns（区分默认id_rsa）</strong></p>
+
+<pre class="terminal"><code>
+ssh-keygen -t rsa -C "***@addcn.com"
+Enter file in which to save the key (/c/Documents and Settings/10113/.ssh/id_ras):
+id_rsa_addcns
+Enter passphrase(empty for no passphrase):
+******
+ssh-agent bash #报错：Could not open a connection to your authentication agent
+ssh-add id_rsa_addcns #增加id_rsa_addcns
+</code></pre>
+
+
+<p><strong>2、修改.ssh/id_rsa/config文件（无直接新建立）</strong></p>
+
+<pre class="terminal"><code>
+# Default github user(***@gmail.com)
+Host github.com
+HostName github.com
+User git
+IdentityFile /c/Docume~1/10113/.ssh/id_rsa
+ 
+# second user(***@addcn.com)
+Host addcns.github.com
+HostName github.com
+User git
+IdentityFile /c/Docume~1/10113/.ssh/id_rsa_addcns
+</code></pre>
+
+
+<p><strong>3、github增加ssh key</strong></p>
+
+<p>登录github<a href="https://github.com/settings/ssh">https://github.com/settings/ssh</a>，左边面板选择ssh，然后把上步生成的.ssh/id_rsa_addcns.pub用记事本打开，复制里面的内容到Key表单。</p>
+
+<p><strong>4、增加用户 </strong></p>
+
+<pre class="terminal"><code>
+git config --list
+git config --global user.name "addcns"
+git config --global user.email ***@addcns.com
+</code></pre>
+
+
+<p><strong>5、验证github是否正确：</strong></p>
+
+<pre class="terminal"><code>
+ssh -T git@github.com
+</code></pre>
+
+
+<p>没有错误可以看到提示的，Hi,addcns! You've successfully authenticated...</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Octopress自定义主题]]></title>
+    <link href="http://addcn.github.com/blog/2013/04/01/octopress-custom-theme/"/>
+    <updated>2013-04-01T11:16:00+08:00</updated>
+    <id>http://addcn.github.com/blog/2013/04/01/octopress-custom-theme</id>
+    <content type="html"><![CDATA[<p><strong> 新增主题 </strong></p>
+
+<p>cd octopress
+git clone git://github.com/addcns/Octopress-Theme-Simple.git .themes/simple
+rake install['simple']
+rake generate</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[常用网址]]></title>
+    <link href="http://addcn.github.com/blog/2012/12/08/develop-tool-link/"/>
+    <updated>2012-12-08T20:20:00+08:00</updated>
+    <id>http://addcn.github.com/blog/2012/12/08/develop-tool-link</id>
+    <content type="html"><![CDATA[<h3>--技术-----------------------------------</h3>
+
+<p>前端导航@前端 <a href="http://www.ux265.net">http://www.ux265.net</a></p>
+
+<p>蓝色理想@开发 <a href="http://www.blueidea.com">http://www.blueidea.com</a></p>
+
+<p>phpchina@开发 <a href="http://bbs.phpchina.com">http://bbs.phpchina.com</a></p>
+
+<p>iphone@开发 <a href="http://www.cocoachina.com">http://www.cocoachina.com</a></p>
+
+<p>devdiv@开发 <a href="http://www.devdiv.com/android_-forum-102-1.html">http://www.devdiv.com</a></p>
+
+<p>apkbus@开发 <a href="http://www.apkbus.com/forum.php">http://www.apkbus.com</a></p>
+
+<p>开源中国@开发 <a href="http://www.oschina.net/android">http://www.oschina.net</a></p>
+
+<p>eoeandroid@开发 <a href="http://www.eoeandroid.com/forum.php">http://www.eoeandroid.com</a></p>
+
+<!-- more -->
+
+
+<h3>--社区-----------------------------------</h3>
+
+<p>doit@效率 <a href="https://i.doit.im/home">https://i.doit.im/home</a></p>
+
+<p>evernote@效率 <a href="https://www.evernote.com">https://www.evernote.com</a></p>
+
+<p>豆瓣@addcn <a href="http://www.douban.com">http://www.douban.com</a></p>
+
+<p>twitter@addcn <a href="http://twitter.com/addcn">http://twitter.com/addcn</a></p>
+
+<p>新浪微博@addcn <a href="http://weibo.com/addcn">http://weibo.com/addcn</a></p>
+
+<p>blogbus@addcn <a href="http://addcn.blogbus.com">http://addcn.blogbus.com</a></p>
+
+<p>baidu@addcn <a href="http://hi.baidu.com/new/addcn">http://hi.baidu.com/new/addcn</a></p>
+
+<h3>--在线-----------------------------------</h3>
+
+<p>抓虾@RSS <a href="http://www.zhuaxia.com">http://www.zhuaxia.com</a></p>
+
+<p>鲜果@RSS <a href="http://www.xianguo.com">http://www.xianguo.com</a></p>
+
+<p>google@RSS <a href="http://www.google.com/reader">http://www.google.com/reader</a></p>
+
+<p>卓越@购物 <a href="http://www.amazon.cn">http://www.amazon.cn</a></p>
+
+<p>京东@购物 <a href="http://www.360buy.com">http://www.360buy.com</a></p>
+
+<p>当当网@购物 <a href="http://home.dangdang.com">http://home.dangdang.com</a></p>
+
+<p>互动出版社@购物 <a href="http://www.china-pub.com">http://www.china-pub.com</a></p>
+
+<h3>--工具-----------------------------------</h3>
+
+<p>微盘@云存储 <a href="http://vdisk.weibo.com">http://vdisk.weibo.com</a></p>
+
+<p>云端硬盘@云存储 <a href="https://drive.google.com">https://drive.google.com</a></p>
+
+<p>百度文库@云存储 <a href="http://wenku.baidu.com">http://wenku.baidu.com</a></p>
+
+<p>新浪爱问@云存储 <a href="http://ishare.iask.sina.com.cn">http://ishare.iask.sina.com.cn</a></p>
+
+<p>slideshare@云存储 <a href="http://www.slideshare.net/addcn">http://www.slideshare.net/addcn</a></p>
+
+<p>花瓣@图片分享 <a href="http://huaban.com">http://huaban.com</a></p>
+
+<p>flickr@图片分享 <a href="http://www.flickr.com">http://www.flickr.com</a></p>
+
+<p>图研所@信息图 <a href="http://www.tuyansuo.com">http://www.tuyansuo.com</a></p>
+]]></content>
+  </entry>
+  
+</feed>
