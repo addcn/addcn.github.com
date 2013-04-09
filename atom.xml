@@ -4,7 +4,7 @@
   <title><![CDATA[uedao]]></title>
   <link href="http://addcn.github.com/atom.xml" rel="self"/>
   <link href="http://addcn.github.com/"/>
-  <updated>2013-04-09T15:15:19+08:00</updated>
+  <updated>2013-04-09T15:46:58+08:00</updated>
   <id>http://addcn.github.com/</id>
   <author>
     <name><![CDATA[addcn]]></name>
@@ -384,10 +384,21 @@ ssh -T git@github.com
     <id>http://addcn.github.com/blog/2013/04/01/octopress-custom-theme</id>
     <content type="html"><![CDATA[<p><strong> 新增主题 </strong></p>
 
-<p>cd octopress
+<pre class="terminal"><code>cd octopress
 git clone git://github.com/addcns/Octopress-Theme-Simple.git .themes/simple
-rake install[&#8216;simple&#8217;]
-rake generate</p>
+rake install['simple']
+rake generate
+</code></pre>
+
+
+<p><strong> 新增主题 </strong></p>
+
+<pre class="terminal"><code>cd octopress
+git clone git://github.com/addcns/Octopress-Theme-Simple.git .themes/simple
+rake install['simple']
+rake generate
+</code></pre>
+
 ]]></content>
   </entry>
   
