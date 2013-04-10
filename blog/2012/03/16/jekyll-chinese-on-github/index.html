@@ -164,8 +164,7 @@ Configuration from D:/htdocs/addcn.github.com/blog.uedao.com/ &hellip;">
 
 <div class="entry-content"><p>配置好环境后找到一个非常<a href="http://tom.preston-werner.com/">简洁的模板</a>，下载回来提示错误：</p>
 
-<pre class="terminal"><code>
-D:\htdocs\addcn.github.com\blog.uedao.com>jekyll --server
+<pre class="terminal"><code>D:\htdocs\addcn.github.com\blog.uedao.com>jekyll --server
 Configuration from D:/htdocs/addcn.github.com/blog.uedao.com/_config.yml
 Building site: D:/htdocs/addcn.github.com/blog.uedao.com -> D:/htdocs/addcn.gith
 ub.com/blog.uedao.com/_site
@@ -177,27 +176,17 @@ b:39:in `initialize'
 </code></pre>
 
 
-<p>解决方法：
+<p><strong>解决方法：</strong>
 找文件C:\Ruby192\lib\ruby\gems\1.9.1\gems\jekyll-0.11.2\lib\jekyll\convertible.rb，查找self.content = File.read(File.join(base, name))替换为下面两行即可。</p>
 
-<pre class="terminal">
-  <code>
-  #self.content = File.read(File.join(base, name))
-  self.content = File.read(File.join(base, name), :encoding => "utf-8")
-  </code>
-</pre>
+<pre class="terminal"><code>#self.content = File.read(File.join(base, name))
+self.content = File.read(File.join(base, name), :encoding => "utf-8")
+</code></pre>
 
 
-
-
-<div style="margin-top:20px">参考及相关资料：</div>
-
-
-<ul>
-<li><a href="http://vlucas.net/essay/2012/02/19/jekyll-y/">http://vlucas.net/essay/2012/02/19/jekyll-y/</a></li>
-<li><a href="http://roylez.heroku.com/2010/02/04/jekyll-on-heroku.html">http://roylez.heroku.com/2010/02/04/jekyll-on-heroku.html</a></li>
-</ul>
-
+<p><strong>参考资料：</strong><br/>
+- <a href="http://vlucas.net/essay/2012/02/19/jekyll-y/">http://vlucas.net/essay/2012/02/19/jekyll-y/</a><br/>
+- <a href="http://roylez.heroku.com/2010/02/04/jekyll-on-heroku.html">http://roylez.heroku.com/2010/02/04/jekyll-on-heroku.html</a></p>
 </div>
 
 
@@ -234,7 +223,7 @@ b:39:in `initialize'
 
 <span class="tags">
   
-    <a class='tag' href='/tags/github/'>github</a>
+    <a class='tag' href='/tags/github/'>github</a>, <a class='tag' href='/tags/jekyll/'>jekyll</a>
   
 </span>
 
@@ -273,10 +262,10 @@ b:39:in `initialize'
 <section>
 <h1>分类目录</h1>
 <ul>
-  <li><a href='/blog/categories/develop'>Develop (2)</a></li>
+  <li><a href='/blog/categories/develop'>Develop (5)</a></li>
   <li><a href='/blog/categories/living'>Living (1)</a></li>
   <li><a href='/blog/categories/reading'>Reading (1)</a></li>
-  <li><a href='/blog/categories/share'>Share (8)</a></li>
+  <li><a href='/blog/categories/share'>Share (7)</a></li>
 </ul>
 </section>
 
@@ -293,15 +282,15 @@ b:39:in `initialize'
       </li>
     
       <li class="post">
-        <a href="/blog/2013/04/01/octopress-custom-config/">Octopress初步设置</a>
+        <a href="/blog/2013/04/01/octopress-advanced-setting/">octopress高级配置</a>
       </li>
     
       <li class="post">
-        <a href="/blog/2013/04/01/github-octopress/">在Github搭建Octopress博客</a>
+        <a href="/blog/2013/04/01/blog-on-github-octopress/">在github搭建octopress博客</a>
       </li>
     
       <li class="post">
-        <a href="/blog/2013/04/01/octopress-custom-theme/">Octopress自定义主题</a>
+        <a href="/blog/2013/04/01/octopress-custom-theme/">octopress自定义主题</a>
       </li>
     
   </ul>
@@ -313,9 +302,16 @@ b:39:in `initialize'
 <section>
   <h1>Tags</h1>
   <ul class="tag-cloud">
-    <a style="font-size: 136%" href="/tags/android/">android</a>
+    <a style="font-size: 142%" href="/tags/android/">android</a>
+<a style="font-size: 90%" href="/tags/download/">download</a>
 <a style="font-size: 210%" href="/tags/github/">github</a>
+<a style="font-size: 142%" href="/tags/jekyll/">jekyll</a>
+<a style="font-size: 90%" href="/tags/maven/">maven</a>
 <a style="font-size: 90%" href="/tags/month/">month</a>
+<a style="font-size: 142%" href="/tags/mysql/">mysql</a>
+<a style="font-size: 90%" href="/tags/nginx/">nginx</a>
+<a style="font-size: 172%" href="/tags/octopress/">octopress</a>
+<a style="font-size: 90%" href="/tags/php/">php</a>
 <a style="font-size: 90%" href="/tags/ppt/">ppt</a>
 <a style="font-size: 90%" href="/tags/story/">story</a>
 <a style="font-size: 90%" href="/tags/tool/">tool</a>

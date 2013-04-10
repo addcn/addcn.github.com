@@ -5,13 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>在Github搭建Octopress博客 - uedao</title>
+  <title>Tag: octopress - uedao</title>
   <meta name="author" content="addcn">
 
   
-  <meta name="description" content="一、安装octopress 1、注册帐号
-https://github.com/users 2、安装octopress
-参照官方安装指引http://octopress.org/docs/ git clone git://github.com/imathis/octopress.git &hellip;">
+  <meta name="description" content="Tag: octopress">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -20,7 +18,7 @@ https://github.com/users 2、安装octopress
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://addcn.github.com/blog/2013/04/01/github-octopress">
+  <link rel="canonical" href="http://addcn.github.comtags/octopress">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="uedao" type="application/atom+xml">
@@ -136,202 +134,82 @@ https://github.com/users 2、安装octopress
 	<div id="main">
 		<div id="content">
 		  <div>
-<article class="hentry" role="article">
+<article role="article">
   
   <header>
-    
-      <h1 class="entry-title">在Github搭建Octopress博客</h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2013-04-01T14:19:00+08:00" pubdate data-updated="true">Apr 1<span>st</span>, 2013</time>
-        
-      </p>
+    <h1 class="entry-title">Tag: Octopress</h1>
     
   </header>
-
-
-<div class="entry-content"><h2>一、安装octopress</h2>
-
-<p><strong>1、注册帐号</strong>
-<a href="https://github.com/users">https://github.com/users</a></p>
-
-<p><strong>2、安装octopress</strong>
-参照官方安装指引<a href="http://octopress.org/docs/">http://octopress.org/docs/</a></p>
-
-<pre class="terminal"><code>
-git clone git://github.com/imathis/octopress.git octopress
-cd octopress
-ruby --version  # Should report Ruby 1.9.3，我的是1.9.2不管它
-gem install bundler
-bundle install
-rake install
-</code></pre>
-
-
-<p><strong>3、github新建立版本库</strong></p>
-
-<p>github上<a href="https://github.com/new">https://github.com/new</a> 新建repo（参考<a href="http://xuhehuan.com/783.html">http://xuhehuan.com/783.html</a>）</p>
-
-<pre class="terminal"><code>
-Repository name addcns.github.com
-Description (optional)  octopress
-Initialize this repository with a README
-</code></pre>
-
-
-<p><strong>4、发布Octopress</strong></p>
-
-<pre class="terminal"><code>
-rake setup_github_pages
-git@addcns.github.com:addcns/addcns.github.com #注意多帐号，使用git@addcns.github.com:addcns，而非git@github.com:addcns
-rake install #安装默认主题
-rake generate #生成静态页面
-rake preview #本地预览，http://localhost:4000/
-rake new_post["titile"] #创建文章
-rake new_page[super-awesome] #创建页面
-rake deploy #发布到master分支,访问http:/addcns.github.com
-git add . #源文件发布source分支
-git commit -m "init octopress"
-git push origin source
-</code></pre>
-
-
-<p>最后访问见<a href="http://addcns.github.com">http://addcns.github.com</a></p>
-
-<h2>二、多个GitHub帐号的SSH key切换</h2>
-
-<p>为了测试注册两个github帐号，rake deploy时候会提示输入默认的id_rsa的密钥，所以需要切换帐号。参考<a href="http://www.zikercn.com/node/20">http://www.zikercn.com/node/20</a></p>
-
-<p><strong>1、生成id_rsa_addcns（区分默认id_rsa）</strong></p>
-
-<pre class="terminal"><code>
-ssh-keygen -t rsa -C "***@addcn.com"
-Enter file in which to save the key (/c/Documents and Settings/10113/.ssh/id_ras):
-id_rsa_addcns
-Enter passphrase(empty for no passphrase):
-******
-ssh-agent bash #报错：Could not open a connection to your authentication agent
-ssh-add id_rsa_addcns #增加id_rsa_addcns
-</code></pre>
-
-
-<p><strong>2、修改.ssh/id_rsa/config文件（无直接新建立）</strong></p>
-
-<pre class="terminal"><code>
-# Default github user(***@gmail.com)
-Host github.com
-HostName github.com
-User git
-IdentityFile /c/Docume~1/10113/.ssh/id_rsa
- 
-# second user(***@addcn.com)
-Host addcns.github.com
-HostName github.com
-User git
-IdentityFile /c/Docume~1/10113/.ssh/id_rsa_addcns
-</code></pre>
-
-
-<p><strong>3、github增加ssh key</strong></p>
-
-<p>登录github<a href="https://github.com/settings/ssh">https://github.com/settings/ssh</a>，左边面板选择ssh，然后把上步生成的.ssh/id_rsa_addcns.pub用记事本打开，复制里面的内容到Key表单。</p>
-
-<p><strong>4、增加用户 </strong></p>
-
-<pre class="terminal"><code>
-git config --list
-git config --global user.name "addcns"
-git config --global user.email ***@addcns.com
-</code></pre>
-
-
-<p><strong>5、验证github是否正确：</strong></p>
-
-<pre class="terminal"><code>
-ssh -T git@github.com
-</code></pre>
-
-
-<p>没有错误可以看到提示的，Hi,addcns! You&#8217;ve successfully authenticated&#8230;</p>
-</div>
-
-
-  <footer>
-    <p class="meta">
-      
   
-
-<span class="byline author vcard">Posted by <span class="fn">addcn</span></span>
-
-      
-
-
-
-
-
+  <div id="blog-archives" class="tag">
 
 
 
   
+  <h2>2013</h2>
 
-
-<time datetime="2013-04-01T14:19:00+08:00" pubdate data-updated="true">Apr 1<span>st</span>, 2013</time>
-      
-
-<span class="categories">
+<article>
   
-    <a class='category' href='/blog/categories/share/'>share</a>
-  
-</span>
+
+<h1><a href="/blog/2013/04/01/octopress-advanced-setting/">octopress高级配置</a></h1>
+<time datetime="2013-04-01T18:43:00+08:00" pubdate><span class='month'>Apr</span> <span class='day'>01</span> <span class='year'>2013</span></time>
+
+<footer>
+
+  <span class="categories">posted in <a class='category' href='/blog/categories/share/'>share</a></span>
 
 
-      
+  <span class="tags">tagged with <a class='tag' href='/tags/github/'>github</a>, <a class='tag' href='/tags/octopress/'>octopress</a></span>
 
-<span class="tags">
-  
-    <a class='tag' href='/tags/github/'>github</a>
-  
-</span>
+</footer>
 
 
-    </p>
-    
-      <div class="sharing">
-  
-  
-  
-</div>
-
-    
-    <p class="meta">
-      
-        <a class="basic-alignment left" href="/blog/2013/04/01/octopress-custom-theme/" title="Previous Post: Octopress自定义主题">&laquo; Octopress自定义主题</a>
-      
-      
-        <a class="basic-alignment right" href="/blog/2013/04/01/octopress-custom-config/" title="Next Post: Octopress初步设置">Octopress初步设置 &raquo;</a>
-      
-    </p>
-  </footer>
 </article>
 
-  <section>
-    <h1>Comments</h1>
-    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+<article>
+  
+
+<h1><a href="/blog/2013/04/01/blog-on-github-octopress/">在github搭建octopress博客</a></h1>
+<time datetime="2013-04-01T14:19:00+08:00" pubdate><span class='month'>Apr</span> <span class='day'>01</span> <span class='year'>2013</span></time>
+
+<footer>
+
+  <span class="categories">posted in <a class='category' href='/blog/categories/share/'>share</a></span>
+
+
+  <span class="tags">tagged with <a class='tag' href='/tags/github/'>github</a>, <a class='tag' href='/tags/octopress/'>octopress</a></span>
+
+</footer>
+
+
+</article>
+
+
+
+<article>
+  
+
+<h1><a href="/blog/2013/04/01/octopress-custom-theme/">octopress自定义主题</a></h1>
+<time datetime="2013-04-01T11:16:00+08:00" pubdate><span class='month'>Apr</span> <span class='day'>01</span> <span class='year'>2013</span></time>
+
+<footer>
+
+  <span class="categories">posted in <a class='category' href='/blog/categories/share/'>share</a></span>
+
+
+  <span class="tags">tagged with <a class='tag' href='/tags/github/'>github</a>, <a class='tag' href='/tags/octopress/'>octopress</a></span>
+
+</footer>
+
+
+</article>
+
 </div>
-  </section>
+
+  
+</article>
 
 </div>
 
@@ -341,10 +219,10 @@ ssh -T git@github.com
 <section>
 <h1>分类目录</h1>
 <ul>
-  <li><a href='/blog/categories/develop'>Develop (2)</a></li>
+  <li><a href='/blog/categories/develop'>Develop (5)</a></li>
   <li><a href='/blog/categories/living'>Living (1)</a></li>
   <li><a href='/blog/categories/reading'>Reading (1)</a></li>
-  <li><a href='/blog/categories/share'>Share (8)</a></li>
+  <li><a href='/blog/categories/share'>Share (7)</a></li>
 </ul>
 </section>
 
@@ -361,15 +239,15 @@ ssh -T git@github.com
       </li>
     
       <li class="post">
-        <a href="/blog/2013/04/01/octopress-custom-config/">Octopress初步设置</a>
+        <a href="/blog/2013/04/01/octopress-advanced-setting/">octopress高级配置</a>
       </li>
     
       <li class="post">
-        <a href="/blog/2013/04/01/github-octopress/">在Github搭建Octopress博客</a>
+        <a href="/blog/2013/04/01/blog-on-github-octopress/">在github搭建octopress博客</a>
       </li>
     
       <li class="post">
-        <a href="/blog/2013/04/01/octopress-custom-theme/">Octopress自定义主题</a>
+        <a href="/blog/2013/04/01/octopress-custom-theme/">octopress自定义主题</a>
       </li>
     
   </ul>
@@ -381,9 +259,16 @@ ssh -T git@github.com
 <section>
   <h1>Tags</h1>
   <ul class="tag-cloud">
-    <a style="font-size: 136%" href="/tags/android/">android</a>
+    <a style="font-size: 142%" href="/tags/android/">android</a>
+<a style="font-size: 90%" href="/tags/download/">download</a>
 <a style="font-size: 210%" href="/tags/github/">github</a>
+<a style="font-size: 142%" href="/tags/jekyll/">jekyll</a>
+<a style="font-size: 90%" href="/tags/maven/">maven</a>
 <a style="font-size: 90%" href="/tags/month/">month</a>
+<a style="font-size: 142%" href="/tags/mysql/">mysql</a>
+<a style="font-size: 90%" href="/tags/nginx/">nginx</a>
+<a style="font-size: 172%" href="/tags/octopress/">octopress</a>
+<a style="font-size: 90%" href="/tags/php/">php</a>
 <a style="font-size: 90%" href="/tags/ppt/">ppt</a>
 <a style="font-size: 90%" href="/tags/story/">story</a>
 <a style="font-size: 90%" href="/tags/tool/">tool</a>
@@ -415,10 +300,7 @@ ssh -T git@github.com
       var disqus_shortname = 'uedao';
       
         
-        // var disqus_developer = 1;
-        var disqus_identifier = 'http://addcn.github.com/blog/2013/04/01/github-octopress/';
-        var disqus_url = 'http://addcn.github.com/blog/2013/04/01/github-octopress/';
-        var disqus_script = 'embed.js';
+        var disqus_script = 'count.js';
       
     (function () {
       var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;

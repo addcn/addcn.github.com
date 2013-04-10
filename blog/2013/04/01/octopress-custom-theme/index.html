@@ -5,14 +5,13 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Octopress自定义主题 - uedao</title>
+  <title>octopress自定义主题 - uedao</title>
   <meta name="author" content="addcn">
 
   
-  <meta name="description" content="新增主题 cd octopress
-git clone git://github.com/addcns/Octopress-Theme-Simple.git .themes/simple
-rake install['simple']
-rake generate 新增主题 cd octopress &hellip;">
+  <meta name="description" content="终于把octopress完整的修改了一下，记录下步骤： 1、新增主题simple 以默认classic主题，新建自定义主题，复制.themes/classic到.themes/simple。 执行以下命令： rake install[simple] #安装主题
+rake clean
+rake &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -164,23 +163,35 @@ rake generate 新增主题 cd octopress &hellip;">
   </header>
 
 
-<div class="entry-content"><p><strong> 新增主题 </strong></p>
+<div class="entry-content"><p>终于把octopress完整的修改了一下，记录下步骤：</p>
 
-<pre class="terminal"><code>cd octopress
-git clone git://github.com/addcns/Octopress-Theme-Simple.git .themes/simple
-rake install['simple']
+<p><strong>1、新增主题<code>simple</code></strong></p>
+
+<p>以默认classic主题，新建自定义主题，复制<code>.themes/classic</code>到<code>.themes/simple</code>。</p>
+
+<p>执行以下命令：</p>
+
+<pre class="terminal"><code>rake install[simple] #安装主题
+rake clean
+rake update_style[simple] #更新sass，会把旧的sass重命名为sass.old
+rake update_source[simple] #更新source，会把旧的source重命名为source.old
 rake generate
+rake preview #预览，
+rake deploy
 </code></pre>
 
 
-<p><strong> 新增主题 </strong></p>
+<p><code>rake preview</code>启动预览后，修改<code>source</code>或<code>sass</code>下的文件后可不用重新启动，其会<strong>实时刷新</strong>。</p>
 
-<pre class="terminal"><code>cd octopress
-git clone git://github.com/addcns/Octopress-Theme-Simple.git .themes/simple
-rake install['simple']
-rake generate
-</code></pre>
+<p><strong>注意：</strong>调试修改过程会直接修改<code>source</code>或<code>sass</code>文件，完成后必须记得把修改内容拷贝到<code>.themes/simple</code>，否则<code>rake update_source[simple]</code>会直接覆盖掉修改过的文件。</p>
 
+<p><strong>2、修改布局文件<code>source</code></strong></p>
+
+<p>主人口文件<code>source/_layouts/default.html</code></p>
+
+<p><strong>3、修改样式文件<code>sass</code></strong></p>
+
+<p>可直接修改<code>sass/custom/_styles.scss</code>，该样式文件页面<strong>最后加载</strong>的css，里面定义的样式会覆盖其它。</p>
 </div>
 
 
@@ -217,7 +228,7 @@ rake generate
 
 <span class="tags">
   
-    <a class='tag' href='/tags/github/'>github</a>
+    <a class='tag' href='/tags/github/'>github</a>, <a class='tag' href='/tags/octopress/'>octopress</a>
   
 </span>
 
@@ -236,7 +247,7 @@ rake generate
         <a class="basic-alignment left" href="/blog/2013/01/06/month-summary/" title="Previous Post: 月份总结201209">&laquo; 月份总结201209</a>
       
       
-        <a class="basic-alignment right" href="/blog/2013/04/01/github-octopress/" title="Next Post: 在Github搭建Octopress博客">在Github搭建Octopress博客 &raquo;</a>
+        <a class="basic-alignment right" href="/blog/2013/04/01/blog-on-github-octopress/" title="Next Post: 在github搭建octopress博客">在github搭建octopress博客 &raquo;</a>
       
     </p>
   </footer>
@@ -256,10 +267,10 @@ rake generate
 <section>
 <h1>分类目录</h1>
 <ul>
-  <li><a href='/blog/categories/develop'>Develop (2)</a></li>
+  <li><a href='/blog/categories/develop'>Develop (5)</a></li>
   <li><a href='/blog/categories/living'>Living (1)</a></li>
   <li><a href='/blog/categories/reading'>Reading (1)</a></li>
-  <li><a href='/blog/categories/share'>Share (8)</a></li>
+  <li><a href='/blog/categories/share'>Share (7)</a></li>
 </ul>
 </section>
 
@@ -276,15 +287,15 @@ rake generate
       </li>
     
       <li class="post">
-        <a href="/blog/2013/04/01/octopress-custom-config/">Octopress初步设置</a>
+        <a href="/blog/2013/04/01/octopress-advanced-setting/">octopress高级配置</a>
       </li>
     
       <li class="post">
-        <a href="/blog/2013/04/01/github-octopress/">在Github搭建Octopress博客</a>
+        <a href="/blog/2013/04/01/blog-on-github-octopress/">在github搭建octopress博客</a>
       </li>
     
       <li class="post">
-        <a href="/blog/2013/04/01/octopress-custom-theme/">Octopress自定义主题</a>
+        <a href="/blog/2013/04/01/octopress-custom-theme/">octopress自定义主题</a>
       </li>
     
   </ul>
@@ -296,9 +307,16 @@ rake generate
 <section>
   <h1>Tags</h1>
   <ul class="tag-cloud">
-    <a style="font-size: 136%" href="/tags/android/">android</a>
+    <a style="font-size: 142%" href="/tags/android/">android</a>
+<a style="font-size: 90%" href="/tags/download/">download</a>
 <a style="font-size: 210%" href="/tags/github/">github</a>
+<a style="font-size: 142%" href="/tags/jekyll/">jekyll</a>
+<a style="font-size: 90%" href="/tags/maven/">maven</a>
 <a style="font-size: 90%" href="/tags/month/">month</a>
+<a style="font-size: 142%" href="/tags/mysql/">mysql</a>
+<a style="font-size: 90%" href="/tags/nginx/">nginx</a>
+<a style="font-size: 172%" href="/tags/octopress/">octopress</a>
+<a style="font-size: 90%" href="/tags/php/">php</a>
 <a style="font-size: 90%" href="/tags/ppt/">ppt</a>
 <a style="font-size: 90%" href="/tags/story/">story</a>
 <a style="font-size: 90%" href="/tags/tool/">tool</a>

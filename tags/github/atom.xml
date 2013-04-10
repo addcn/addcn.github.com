@@ -4,7 +4,7 @@
   <title><![CDATA[Tag: github | uedao]]></title>
   <link href="http://addcn.github.com/tags/github/atom.xml" rel="self"/>
   <link href="http://addcn.github.com/"/>
-  <updated>2013-04-09T15:47:01+08:00</updated>
+  <updated>2013-04-10T14:56:26+08:00</updated>
   <id>http://addcn.github.com/</id>
   <author>
     <name><![CDATA[addcn]]></name>
@@ -14,71 +14,35 @@
 
   
   <entry>
-    <title type="html"><![CDATA[Octopress初步设置]]></title>
-    <link href="http://addcn.github.com/blog/2013/04/01/octopress-custom-config/"/>
+    <title type="html"><![CDATA[octopress高级配置]]></title>
+    <link href="http://addcn.github.com/blog/2013/04/01/octopress-advanced-setting/"/>
     <updated>2013-04-01T18:43:00+08:00</updated>
-    <id>http://addcn.github.com/blog/2013/04/01/octopress-custom-config</id>
-    <content type="html"><![CDATA[<p><strong> 1、编码问题 </strong></p>
+    <id>http://addcn.github.com/blog/2013/04/01/octopress-advanced-setting</id>
+    <content type="html"><![CDATA[<p><strong>1、基本设置</strong></p>
 
-<p>rake generate Liquid Exception:invalid byte sequence in UTF-8 in post</p>
+<p>文章留言功能<br/>
+<code>_config.yml</code>设置：<code>disqus_short_name:addcn #非注册帐号，注册后新建留言的帐号</code></p>
 
-<p>为了支持中文UTF-8编码，对Windows环境变量配置如下：</p>
+<p>最近文章列表</p>
 
-<p><code>LANG=zh_CN.UTF-8</code></p>
+<p>谷歌分析统计</p>
 
-<p><code>LC_ALL=zh_CN.UTF-8</code></p>
-
-<p>也可在直接在Windows的cmd窗口下运行命令</p>
-
-<p><code>set LANG=zh_CN.UTF-8</code>
-<code>set LC_ALL=zh_CN.UTF-8</code></p>
-
-<p>_config.yml另存为utf-8编码格式文件</p>
-
-<p>文章_post使用utf-8编码文件</p>
+<p>github链接</p>
 
 <p><strong>2、新浪微博侧栏</strong></p>
 
-<ul>
-<li>增加文件：<code>source/_includes/asides/weibo.html</code></li>
-<li>增加配置：<code>_config.yml</code></li>
-</ul>
+<p>增加文件：<code>source/_includes/asides/weibo.html</code><br/>
+<code>_config.yml</code> 增加：<code>default_asides: [..., asides/weibo.html...]</code></p>
 
+<p><strong>3、博客分类功能</strong></p>
 
-<pre class="terminal"><code>
-default_asides: [asides/recent_posts.html, asides/weibo.html, asides/github.html, asides/delicious.html, asides/pinboard.html, asides/googleplus.html]
+<p><strong>4、博客标签云功能</strong></p>
 
-# Weibo
-# Please refer to http://weibo.com/tool/weiboshow to get your uid and verifier.
-weibo_uid: 1640234245
-weibo_verifier: a7415e95
-weibo_fansline: 0 # How many lines for the fan list
-weibo_show: true # Whether you want your weibo content to be shown
-weibo_pic: true # Whether you want the pictures in weibo to be shown
-weibo_skin: 10 # Please refer to http://weibo.com/tool/weiboshow
-weibo_share: true # Whether show the sharing button
-</code></pre>
+<p><strong>5、新窗口打开非站内链接</strong></p>
 
+<p><strong>6、页面返回底部功能</strong></p>
 
-<p><strong>3、文章留言功能</strong></p>
-
-<ul>
-<li>增加配置：<code>_config.yml</code></li>
-</ul>
-
-
-<pre class="terminal"><code>
-# Disqus Comments
-disqus_short_name:addcn
-disqus_show_comment_count: true
-</code></pre>
-
-
-<p><strong> 1、查看rake命令 </strong></p>
-
-<p>rake -T</p>
-
-<p><strong>4、参考文章</strong></p>
+<p><strong>7、参考文章</strong></p>
 
 <ul>
 <li><a href="http://yanping.me/cn/blog/2012/01/07/theming-and-customization/">为Octopress修改主题和自定义样式</a></li>
@@ -86,26 +50,29 @@ disqus_show_comment_count: true
 <li><a href="http://ccaloha.cc/blog/2011/10/25/xin-zeng-liu-yan-gong-neng-in-octopress/">新增留言功能in Octopress</a></li>
 <li><a href="http://blog.eddie.com.tw/2011/12/05/add-catetories-to-sidebar-in-octopress/">幫你的Octopress增加文章分類</a></li>
 <li><a href="http://yanping.me/cn/blog/2012/03/18/github-pages-step-by-step/">Github Pages极简教程</a></li>
+<li><a href="http://codemacro.com/2012/07/18/add-tag-to-octopress/">为octopress添加tag Cloud</a></li>
+<li><a href="http://blog.log4d.com/2012/05/tag-cloud/">给 Octopress 加上标签功能</a></li>
+<li><a href="http://codemacro.com/2012/07/26/post-footer-plugin-for-octopress/">为octopress每篇文章添加一个文章信息</a></li>
+<li><a href="http://tillage.github.io/jinja2/jinja2-template/">Jinja2 Template</a></li>
 </ul>
 
 ]]></content>
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[在Github搭建Octopress博客]]></title>
-    <link href="http://addcn.github.com/blog/2013/04/01/github-octopress/"/>
+    <title type="html"><![CDATA[在github搭建octopress博客]]></title>
+    <link href="http://addcn.github.com/blog/2013/04/01/blog-on-github-octopress/"/>
     <updated>2013-04-01T14:19:00+08:00</updated>
-    <id>http://addcn.github.com/blog/2013/04/01/github-octopress</id>
-    <content type="html"><![CDATA[<h2>一、安装octopress</h2>
+    <id>http://addcn.github.com/blog/2013/04/01/blog-on-github-octopress</id>
+    <content type="html"><![CDATA[<h2>一、搭建基于github的博客</h2>
 
-<p><strong>1、注册帐号</strong>
-<a href="https://github.com/users">https://github.com/users</a></p>
+<p><strong>1、注册帐号</strong><br/>
+地址 <a href="https://github.com/users">https://github.com/users</a></p>
 
-<p><strong>2、安装octopress</strong>
+<p><strong>2、安装octopress</strong><br/>
 参照官方安装指引<a href="http://octopress.org/docs/">http://octopress.org/docs/</a></p>
 
-<pre class="terminal"><code>
-git clone git://github.com/imathis/octopress.git octopress
+<pre class="terminal"><code>git clone git://github.com/imathis/octopress.git octopress
 cd octopress
 ruby --version  # Should report Ruby 1.9.3，我的是1.9.2不管它
 gem install bundler
@@ -114,28 +81,36 @@ rake install
 </code></pre>
 
 
-<p><strong>3、github新建立版本库</strong></p>
+<p><strong>3、github新建版本库</strong></p>
 
-<p>github上<a href="https://github.com/new">https://github.com/new</a> 新建repo（参考<a href="http://xuhehuan.com/783.html">http://xuhehuan.com/783.html</a>）</p>
+<p>在github上<a href="https://github.com/new">https://github.com/new</a> 新建一个命名注意为<code>username.github.com</code>的<code>repo</code>（参考<a href="http://xuhehuan.com/783.html">http://xuhehuan.com/783.html</a>）。</p>
 
-<pre class="terminal"><code>
-Repository name addcns.github.com
+<pre class="terminal"><code>Repository name addcns.github.com
 Description (optional)  octopress
 Initialize this repository with a README
 </code></pre>
 
 
-<p><strong>4、发布Octopress</strong></p>
+<p><strong>4、写博客发布文章</strong></p>
 
-<pre class="terminal"><code>
-rake setup_github_pages
+<p><strong>本地修改预览</strong></p>
+
+<pre class="terminal"><code>rake setup_github_pages
 git@addcns.github.com:addcns/addcns.github.com #注意多帐号，使用git@addcns.github.com:addcns，而非git@github.com:addcns
 rake install #安装默认主题
-rake generate #生成静态页面
-rake preview #本地预览，http://localhost:4000/
 rake new_post["titile"] #创建文章
 rake new_page[super-awesome] #创建页面
-rake deploy #发布到master分支,访问http:/addcns.github.com
+rake -T #查看rake参数
+rake generate #生成静态
+rake preview #本地预览
+</code></pre>
+
+
+<p>预览地址<a href="http://localhost:4000/">http://localhost:4000/</a></p>
+
+<p><strong>提交发布线上</strong></p>
+
+<pre class="terminal"><code>rake deploy #发布到master分支,访问http:/addcns.github.com
 git add . #源文件发布source分支
 git commit -m "init octopress"
 git push origin source
@@ -144,14 +119,35 @@ git push origin source
 
 <p>最后访问见<a href="http://addcns.github.com">http://addcns.github.com</a></p>
 
+<p><strong>编码问题</strong></p>
+
+<p>执行rake generate提示<code>rake generate Liquid Exception:invalid byte sequence in UTF-8 in post</code></p>
+
+<p>为了支持中文UTF-8编码，对Windows环境变量配置如下：</p>
+
+<pre class="terminal"><code>LANG=zh_CN.UTF-8  
+LC_ALL=zh_CN.UTF-8</code></pre>
+
+
+<p>也可在直接在Windows的cmd窗口下运行命令：</p>
+
+<pre class="terminal"><code>set LANG=zh_CN.UTF-8 
+set LC_ALL=zh_CN.UTF-8</code></pre>
+
+
+<ul>
+<li><code>_config.yml</code>另存为<code>utf-8</code>编码格式文件</li>
+<li>文章<code>_post</code>使用<code>utf-8</code>编码文件</li>
+</ul>
+
+
 <h2>二、多个GitHub帐号的SSH key切换</h2>
 
-<p>为了测试注册两个github帐号，rake deploy时候会提示输入默认的id_rsa的密钥，所以需要切换帐号。参考<a href="http://www.zikercn.com/node/20">http://www.zikercn.com/node/20</a></p>
+<p>为了测试注册两个github帐号，<code>rake deploy</code>时候会提示输入默认的id_rsa的密钥，所以需要切换帐号。（参考<a href="http://www.zikercn.com/node/20">http://www.zikercn.com/node/20</a>）</p>
 
 <p><strong>1、生成id_rsa_addcns（区分默认id_rsa）</strong></p>
 
-<pre class="terminal"><code>
-ssh-keygen -t rsa -C "***@addcn.com"
+<pre class="terminal"><code>ssh-keygen -t rsa -C "***@addcn.com"
 Enter file in which to save the key (/c/Documents and Settings/10113/.ssh/id_ras):
 id_rsa_addcns
 Enter passphrase(empty for no passphrase):
@@ -163,8 +159,7 @@ ssh-add id_rsa_addcns #增加id_rsa_addcns
 
 <p><strong>2、修改.ssh/id_rsa/config文件（无直接新建立）</strong></p>
 
-<pre class="terminal"><code>
-# Default github user(***@gmail.com)
+<pre class="terminal"><code># Default github user(***@gmail.com)
 Host github.com
 HostName github.com
 User git
@@ -178,61 +173,62 @@ IdentityFile /c/Docume~1/10113/.ssh/id_rsa_addcns
 </code></pre>
 
 
-<p><strong>3、github增加ssh key</strong></p>
+<p><strong>3、增加ssh key</strong></p>
 
-<p>登录github<a href="https://github.com/settings/ssh">https://github.com/settings/ssh</a>，左边面板选择ssh，然后把上步生成的.ssh/id_rsa_addcns.pub用记事本打开，复制里面的内容到Key表单。</p>
+<p>登录github（<a href="https://github.com/settings/ssh">https://github.com/settings/ssh</a>），左边面板选择ssh，然后把上步生成的<code>.ssh/id_rsa_addcns.pub</code>用记事本打开，复制里面的内容到Key表单。</p>
 
-<p><strong>4、增加用户 </strong></p>
+<p><strong>4、增加用户</strong></p>
 
-<pre class="terminal"><code>
-git config --list
+<pre class="terminal"><code>git config --list
 git config --global user.name "addcns"
 git config --global user.email ***@addcns.com
 </code></pre>
 
 
-<p><strong>5、验证github是否正确：</strong></p>
+<p><strong>5、验证github是否正确</strong></p>
 
-<pre class="terminal"><code>
-ssh -T git@github.com
+<pre class="terminal"><code>ssh -T git@github.com
 </code></pre>
 
 
-<p>没有错误可以看到提示的，Hi,addcns! You've successfully authenticated...</p>
+<p>没有错误可以看到提示的：<code>Hi,addcns! You've successfully authenticated...</code></p>
 ]]></content>
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[Octopress自定义主题]]></title>
+    <title type="html"><![CDATA[octopress自定义主题]]></title>
     <link href="http://addcn.github.com/blog/2013/04/01/octopress-custom-theme/"/>
     <updated>2013-04-01T11:16:00+08:00</updated>
     <id>http://addcn.github.com/blog/2013/04/01/octopress-custom-theme</id>
-    <content type="html"><![CDATA[<p><strong> 新增主题 </strong></p>
+    <content type="html"><![CDATA[<p>终于把octopress完整的修改了一下，记录下步骤：</p>
 
-<pre class="terminal"><code>cd octopress
-git clone git://github.com/addcns/Octopress-Theme-Simple.git .themes/simple
-rake install['simple']
+<p><strong>1、新增主题<code>simple</code></strong></p>
+
+<p>以默认classic主题，新建自定义主题，复制<code>.themes/classic</code>到<code>.themes/simple</code>。</p>
+
+<p>执行以下命令：</p>
+
+<pre class="terminal"><code>rake install[simple] #安装主题
+rake clean
+rake update_style[simple] #更新sass，会把旧的sass重命名为sass.old
+rake update_source[simple] #更新source，会把旧的source重命名为source.old
 rake generate
+rake preview #预览，
+rake deploy
 </code></pre>
 
 
-<p><strong> 新增主题 </strong></p>
+<p><code>rake preview</code>启动预览后，修改<code>source</code>或<code>sass</code>下的文件后可不用重新启动，其会<strong>实时刷新</strong>。</p>
 
-<pre class="terminal"><code>cd octopress
-git clone git://github.com/addcns/Octopress-Theme-Simple.git .themes/simple
-rake install['simple']
-rake generate
-</code></pre>
+<p><strong>注意：</strong>调试修改过程会直接修改<code>source</code>或<code>sass</code>文件，完成后必须记得把修改内容拷贝到<code>.themes/simple</code>，否则<code>rake update_source[simple]</code>会直接覆盖掉修改过的文件。</p>
 
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[hello octopress]]></title>
-    <link href="http://addcn.github.com/blog/2012/04/27/hello-octopress/"/>
-    <updated>2012-04-27T09:34:00+08:00</updated>
-    <id>http://addcn.github.com/blog/2012/04/27/hello-octopress</id>
-    <content type="html"><![CDATA[<p>my first post to octopresss.</p>
+<p><strong>2、修改布局文件<code>source</code></strong></p>
+
+<p>主人口文件<code>source/_layouts/default.html</code></p>
+
+<p><strong>3、修改样式文件<code>sass</code></strong></p>
+
+<p>可直接修改<code>sass/custom/_styles.scss</code>，该样式文件页面<strong>最后加载</strong>的css，里面定义的样式会覆盖其它。</p>
 ]]></content>
   </entry>
   
@@ -243,8 +239,7 @@ rake generate
     <id>http://addcn.github.com/blog/2012/03/16/jekyll-chinese-on-github</id>
     <content type="html"><![CDATA[<p>配置好环境后找到一个非常<a href="http://tom.preston-werner.com/">简洁的模板</a>，下载回来提示错误：</p>
 
-<pre class="terminal"><code>
-D:\htdocs\addcn.github.com\blog.uedao.com>jekyll --server
+<pre class="terminal"><code>D:\htdocs\addcn.github.com\blog.uedao.com>jekyll --server
 Configuration from D:/htdocs/addcn.github.com/blog.uedao.com/_config.yml
 Building site: D:/htdocs/addcn.github.com/blog.uedao.com -> D:/htdocs/addcn.gith
 ub.com/blog.uedao.com/_site
@@ -256,25 +251,171 @@ b:39:in `initialize'
 </code></pre>
 
 
-<p>解决方法：
+<p><strong>解决方法：</strong>
 找文件C:\Ruby192\lib\ruby\gems\1.9.1\gems\jekyll-0.11.2\lib\jekyll\convertible.rb，查找self.content = File.read(File.join(base, name))替换为下面两行即可。</p>
 
+<pre class="terminal"><code>#self.content = File.read(File.join(base, name))
+self.content = File.read(File.join(base, name), :encoding => "utf-8")
+</code></pre>
+
+
+<p><strong>参考资料：</strong><br/>
+- <a href="http://vlucas.net/essay/2012/02/19/jekyll-y/">http://vlucas.net/essay/2012/02/19/jekyll-y/</a><br/>
+- <a href="http://roylez.heroku.com/2010/02/04/jekyll-on-heroku.html">http://roylez.heroku.com/2010/02/04/jekyll-on-heroku.html</a></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[使用Jekyll在Github上搭建博客]]></title>
+    <link href="http://addcn.github.com/blog/2012/03/15/use-jekyll-build-blog-on-github/"/>
+    <updated>2012-03-15T18:43:00+08:00</updated>
+    <id>http://addcn.github.com/blog/2012/03/15/use-jekyll-build-blog-on-github</id>
+    <content type="html"><![CDATA[<p>Jekyll是一个使用Ruby编写的静态站点生成工具，使用Liquid模板渲染引擎，支持Markdown和Textile标记语言，并且可以为所有以 .html、.markdown、.textile扩展名结尾的文件使用YAML配置，内置语法高亮功能。而Github的Pages服务可以为每个Github主机上的仓库提供静态页面服务，并且Pages服务支持Jekyll。因为Github Pages有两种Pages，分别是用户页面和项目页面，所以我们可以使用用户页面来创建自己的Blog。</p>
+
+<p>在开始前，请确保你已经有了Github账号一枚和Git的正确配置。没有的朋友可以先移步<a href="https://github.com/plans">Github注册</a>并<a href="http://help.github.com/win-set-up-git/">安装配置Git</a>。</p>
+
+<p>首先，创建你的 Blog 仓库 username(请确保跟你的账号名相同).github.com:</p>
+
+<pre class="terminal"><code>$ mkdir username.github.com
+$ cd username.github.com</code></pre>
+
+
+<p>新建一个 index.html 文件，像下面这样:</p>
+
+<p>{% highlight html linenos %}
+&lt;!doctype html>
+<html>
+<head>
+<title>Hello</title>
+</head></p>
+
+<p><body></p>
+
+<h1>Hello!</h1>
+
+
+<p></body>
+</html>
+{% endhighlight %}</p>
+
+<p>初始化仓库、提交并push到Github:</p>
+
+<pre class="terminal"><code>$ git init
+$ git add .
+$ git commit -a -m 'init commit.'
+$ git remote add origin
+$ git push origin master
+</code></pre>
+
+
+<blockquote><p>现在你打开 username.github.com 就可以看到刚才新建的页面了，就是这么简单。当然也可以为你的Blog仓库绑定独立域名，具体做法就是：</p></blockquote>
+
+<ol>
+<li>在你的仓库中新建内容为 www.youdomain.com 的 CNAME 文件；</li>
+<li>在你的域名管理页或者是DNS解析的地方，增加一个记录，记录类别为CNAME(Alias)类型.</li>
+</ol>
+
+
+<p class="note">*Note：如果你在CNAME中填写的是顶级域名，就得设置DNS的记录类别为A(Host)型，并设置主机为207.97.227.245。详细介绍请移步Github的<a href="http://pages.github.com">Pages</a>页面。</p>
+
+
+<p>接下来我们只需要按照自己的喜好设计页面。首先认识下Jekyll的文件及目录配置:</p>
+
 <pre class="terminal">
-  <code>
-  #self.content = File.read(File.join(base, name))
-  self.content = File.read(File.join(base, name), :encoding => "utf-8")
-  </code>
+  .
+  |-- _includes
+  |-- _plugins 
+  |-- _layout 
+  |   |-- default.html
+  |   `-- post.html
+  |-- _post
+  |   |-- yyyy-mm-dd-title.markdown
+  |   `-- yyyy-mm-dd-title.markdown
+  |-- _site
+  |-- _config.yml
+  `-- index.html
 </pre>
 
 
+<h2>_includes</h2>
+
+<p>存放你需要在模板文件中包含的文件，你可以使用Liquid标签 <code>{&permil; include file.ext &permil;}</code> 来引用相应的文件。</p>
+
+<h2>_plugins</h2>
+
+<p>可以增加你自己的插件</p>
+
+<h2>_layout</h2>
+
+<p>存放布局模板，请参考<a href="https://github.com/taberhuang/taberhuang.github.com/tree/master/_layouts">https://github.com/taberhuang/taberhuang.github.com/tree/master/_layouts</a></p>
+
+<h2>_post</h2>
+
+<p>存放文章列表，文件命名一定要遵循 yyyy-mm-dd-title.html|markdown|textile 规则，请参考<a href="https://github.com/taberhuang/taberhuang.github.com/tree/master/_posts">https://github.com/taberhuang/taberhuang.github.com/tree/master/_posts</a></p>
+
+<h2>_site</h2>
+
+<p>Jekyll自动生成的，所以可以忽略，如果你有在本地安装Jekyll并预览了的话，可以使用.gitignore设置Git停止对本目录的跟踪。</p>
+
+<h2>_config.yml</h2>
+
+<p>设置经常使用的配置选项，这样在本地启动预览时就不用每次都手动输入了。</p>
+
+<h2>index.html 和所有的 HTML/Markdown/Textile 文件</h2>
+
+<p>所有的HTML/Markdown/Textile文件都可以包含 YAML 配置，这类文件都会被Jekyll解析。</p>
+
+<p>现在你可以在自己的仓库中配置好你自己的目录及文件，也可以clone我的仓库，然后修改。</p>
+
+<pre class="terminal">
+<code>$ git clone https://github.com/taberhuang/taberhuang.github.com.git</code>
+</pre>
 
 
-<div style="margin-top:20px">参考及相关资料：</div>
+<p>修改完后就可以push你的代码到Github上，看到结果了。刚才有说到本地预览，如果你想在本地预览后，确保没错误再push的话，就需要在本地安装Jekyll，下面介绍下Jekyll的安装方法。</p>
 
+<p>一、安装Ruby运行环境和RubyGem:Windows用户只要下载 <a href="http://rubyforge.org/frs/download.php/74298/rubyinstaller-1.9.2-p180.exe" title="点击下载">RubyInstaller</a>。下载安装后请手动升级gem.</p>
+
+<pre class="terminal"><code>$ gem update --system</code></pre>
+
+
+<p>二、安装DevKit。DevKit是windows平台编译和使用本地C/C++扩展包工具。用来模拟Linux平台下的 <code>make,gcc,sh</code> 进行编译。下载文件后，解压到 `C:\DevKit'，再通过命令行安装:</p>
+
+<pre class="terminal">
+<code>$ cd C:\DevKit
+$ ruby dk.rb init
+$ ruby dk.rb install</code>
+</pre>
+
+
+<p>三、安装并检查刚才的DevKit安装是否成功。如果成功安装，则DevKit也就安装成功，如果不成功，请重新安装DevKit。</p>
+
+<pre class="terminal">
+<code>$ gem install jekyll</code>
+</pre>
+
+
+<p>四、安装Rdiscount，这个是用来解析Markdown标记的解析包。如果你使用Textile的话，就是安装Kramdown。</p>
+
+<pre class="terminal">
+<code>$ gem install rdiscount</code>
+</pre>
+
+
+<p>所有的环境和依赖包都安装成功后，进入你的仓库目录，用下面的命令便可启动Jekyll，并在本地预览了，预览地址默认为 <code>127.0.0.1:4000</code>，当然你也可以通过 _config.yml 配置:</p>
+
+<pre class="terminal">
+<code>jekyll --server</code>
+</pre>
+
+
+<p>参考资料：</p>
 
 <ul>
-<li><a href="http://vlucas.net/essay/2012/02/19/jekyll-y/">http://vlucas.net/essay/2012/02/19/jekyll-y/</a></li>
-<li><a href="http://roylez.heroku.com/2010/02/04/jekyll-on-heroku.html">http://roylez.heroku.com/2010/02/04/jekyll-on-heroku.html</a></li>
+<li><a href="http://pages.github.com/">http://pages.github.com/</a></li>
+<li><a href="https://github.com/mojombo/jekyll/wiki">https://github.com/mojombo/jekyll/wiki</a></li>
+<li><a href="http://blog.envylabs.com/2009/08/publishing-a-blog-with-github-pages-and-jekyll/">http://blog.envylabs.com/2009/08/publishing-a-blog-with-github-pages-and-jekyll/</a></li>
+<li><a href="http://daringfireball.net/projects/markdown/syntax">http://daringfireball.net/projects/markdown/syntax</a></li>
 </ul>
 
 ]]></content>
