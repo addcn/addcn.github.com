@@ -4,7 +4,7 @@
   <title><![CDATA[Category: develop | uedao]]></title>
   <link href="http://addcn.github.com/blog/categories/develop/atom.xml" rel="self"/>
   <link href="http://addcn.github.com/"/>
-  <updated>2013-04-10T15:00:20+08:00</updated>
+  <updated>2013-06-05T10:18:13+08:00</updated>
   <id>http://addcn.github.com/</id>
   <author>
     <name><![CDATA[addcn]]></name>
@@ -12,6 +12,170 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[无信用卡注册google play方法]]></title>
+    <link href="http://addcn.github.com/blog/2013/06/04/no-credit-card-register-google-play/"/>
+    <updated>2013-06-04T18:30:00+08:00</updated>
+    <id>http://addcn.github.com/blog/2013/06/04/no-credit-card-register-google-play</id>
+    <content type="html"><![CDATA[<p>注册google play账户其实很简单，但因为中国大陆特殊关系及很多人没有信用卡，就变得不那么容易了。</p>
+
+<p>简单说下亲测注册成功google play的方法，主要是不用开通实体信用卡且不用等待——实时开通。</p>
+
+<p><strong>1、注册<a href="https://www.tenpay.com/v2/">财付通</a></strong></p>
+
+<p>请先充值注册的费用US$25.00。我注册完成后，加手续费等全部扣费￥161.61元人民币。</p>
+
+<p><strong>2、财付通实名认证</strong></p>
+
+<p>开通境外支付必须先通过实名认证，按照操作就可以。</p>
+
+<p><strong>3、开通<a href="https://www.tenpay.com/v2/account/interna/index.shtml">境外支付</a></strong></p>
+
+<p>是否选择“转运地址提供商”，如果你不清楚这是什么？建议跟我一样，把“友家速递”和“4PX”都选择，确认开通后会虚拟一个信用卡账号码，包括信用卡境外地址、邮政编码、联系电话等。</p>
+
+<p><strong>4、登录<a href="http://www.google.com/wallet/">google电子钱包</a>，绑定虚拟信用卡</strong></p>
+
+<p>点右上角的get started按钮登录，然后添加信用卡。把步骤3虚拟出来的信用卡信息填写上去就可以。需要注意的是，“帐单信息”里面的地址、邮编等需要跟财付通虚拟的信用卡资料一致，否则会短信你“账单地址邮编验证失败”而授权失败。</p>
+
+<p><strong>5、注册<a href="https://play.google.com/apps/publish/">google pay</a></strong></p>
+
+<p>填写完资料确认支付，直接转跳到google play控制台成功了。</p>
+
+<p><strong>最后，有图有真相</strong></p>
+
+<p><img src="/download/images/google-play.png" alt="google play register" /></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Android異步線程使用總結]]></title>
+    <link href="http://addcn.github.com/blog/2013/04/19/android-sync-thread/"/>
+    <updated>2013-04-19T10:08:00+08:00</updated>
+    <id>http://addcn.github.com/blog/2013/04/19/android-sync-thread</id>
+    <content type="html"><![CDATA[<h2>new Thread</h2>
+
+<p><strong>MainThread button onClick</strong></p>
+
+<pre class="terminal"><code>
+
+new Thread(new Runnable() {
+        @Override
+        public void run() {
+                //休眠3秒，用于模拟网络操作时间
+                try {
+                    Thread.sleep(3000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }                        
+                //do something
+                Message mes=handler.obtainMessage("sync");
+                handler.sendMessage(mes);
+        }
+}).start();
+
+
+</code></pre>
+
+
+<p><strong>操作返回</strong></p>
+
+<pre class="terminal"><code>
+
+private Handler handler=new Handler(){
+        @Override
+        public void handleMessage(Message msg) {
+                switch (msg.what) {
+                        case "sync":                        
+                                //隐藏进度条
+                                loadProgressBar.setVisibility(View.GONE);
+                                break;
+                        default:
+                                break;
+                }
+                super.handleMessage(msg);
+        }
+};
+
+</code></pre>
+
+
+<h2>AsyncTask</h2>
+
+<p><strong>onCreant</strong></p>
+
+<pre class="terminal"><code>
+
+new DetailTask().execute(mHouse); // 加載詳細
+
+
+</code></pre>
+
+
+<p><strong>操作返回</strong></p>
+
+<pre class="terminal"><code>
+
+
+/**
+ * 詳細任務
+ * 
+ */
+public class DetailTask extends AsyncTask<House, Integer, String> 
+{
+        @Override
+        protected String doInBackground(House... params) {
+                // 任務執行
+                House houseTmp = params[0];
+                String houseCode = houseTmp.getHouseCode();                
+                String url = Constants.URL_GET_HOUSE_DETAIL + "&houseId=" + houseCode;
+                String result = NetUtils.GetContentFromUrl(url);
+                return result;
+        } 
+
+        @Override    
+        protected void onPostExecute(String result) {
+                // 返回內容
+                bodyLoading.setVisibility(View.GONE);
+                boolean isNetworkAvailable = mApp.isNetworkConnected();//網絡檢測
+                if (!isNetworkAvailable) {
+                        Toast.makeText(mContext, R.string.sys_network_error, Toast.LENGTH_SHORT).show();
+                }
+
+        }
+
+        @Override
+        protected void onPreExecute() {
+                // 任務啟動loading
+                bodyLoading.setVisibility(View.VISIBLE);
+        }
+
+        @Override
+        protected void onProgressUpdate(Integer... values) {
+                // 更新進度
+        }        
+}
+
+</code></pre>
+
+
+<p><strong>二、参考文章</strong></p>
+
+<ul>
+<li><a href="http://www.cnblogs.com/zhangkai281/archive/2011/07/27/2118319.html">ListView分页加载数据</a></li>
+</ul>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Android Google Map V2开发]]></title>
+    <link href="http://addcn.github.com/blog/2013/04/11/android-google-map-v2/"/>
+    <updated>2013-04-11T15:28:00+08:00</updated>
+    <id>http://addcn.github.com/blog/2013/04/11/android-google-map-v2</id>
+    <content type="html"><![CDATA[<p>google map v2开发总结</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[maven构建android项目]]></title>
@@ -292,275 +456,6 @@ Nginx做动态生成缩略图</p>
 <p>基于MongoDB GridFS的图片存储</p>
 
 <p>http://liut.cc/blog/2010/12/about-imsto_my-first-open-source-project.html</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[mysql视图表创建与修改]]></title>
-    <link href="http://addcn.github.com/blog/2011/07/08/mysql-view-action/"/>
-    <updated>2011-07-08T18:43:00+08:00</updated>
-    <id>http://addcn.github.com/blog/2011/07/08/mysql-view-action</id>
-    <content type="html"><![CDATA[<p>旧博文备份<a href="http://blog.uedao.com/blog/?p=20">http://blog.uedao.com/blog/?p=20</a></p>
-
-<p><strong>1、创建</strong></p>
-
-<pre class="terminal"><code>CREATE&nbsp;[OR REPLACE] [&lt;algorithm attributes&gt;] VIEW [database.]&lt; name&gt; [(&lt;columns&gt;)]<br />
-AS&nbsp;&lt;SELECT&nbsp;statement&gt;&nbsp;[&lt;check options&gt;]
-</code></pre>
-
-
-<p>例子：</p>
-
-<pre class="terminal"><code>CREATE VIEW `view_articles`
-AS
-SELECT
-    a.id AS id,
-    a.title AS title,
-    a.content AS content,
-    t.name AS tagname,
-    u.firstname AS "username"
-FROM `articles` a
-    LEFT JOIN `tags` t
-        ON a.tag_id = t.id
-    LEFT JOIN `users` u
-        ON a.user_id = u.id
-ORDER BY a.posttime DESC;
-</code></pre>
-
-
-<p><strong>2、修改</strong></p>
-
-<pre class="terminal"><code>ALTER&nbsp;[&lt;algorithm attributes&gt;] VIEW [&lt;database&gt;.]&lt; name&gt; [(&lt;columns&gt;)]<br />
-AS&lt;SELECT&nbsp;statement&gt;&nbsp;[&lt;check options&gt;]
-</code></pre>
-
-
-<p>例子：</p>
-
-<pre class="terminal"><code>ALTER VIEW `view_articles`
-AS
-SELECT
-    a.id AS id,
-    a.title AS title,
-    a.content AS content,
-    a.posttime AS posttime,
-    t.name AS tagname,
-    CONCAT(u.firstname,' ',u.lastname) AS "username"
-FROM `articles` a
-    LEFT JOIN `tags` t
-        ON a.tag_id = t.id
-    LEFT JOIN `users` u
-        ON a.user_id = u.id
-ORDER BY a.posttime DESC;
-</code></pre>
-
-
-<p>修改已经建立好的视图表，最简单的方法就是在phpMyAdmin导出视图表的SQL，然后修改开头的“CREATE”（后面的</p>
-
-<pre class="terminal"><code>ALGORITHM=UNDEFINED DEFINER=`root`@`localhost`&nbsp;SQL SECURITY DEFINER</code></pre>
-
-
-<p>等不用管，保留它）为<code>ALTER</code>，运行语句即可。</p>
-
-<p><strong>参考文章：</strong></p>
-
-<p><a href="http://database.51cto.com/art/201005/200526.htm">http://database.51cto.com/art/201005/200526.htm</a>
-<a href="http://www.sqlinfo.net/mysql/mysql_VIEWS_the_basics.php">http://www.sqlinfo.net/mysql/mysql_VIEWS_the_basics.php</a>
-<a href="http://www.java2s.com/Tutorial/MySQL/0180__View/Catalog0180__View.htm">http://www.java2s.com/Tutorial/MySQL/0180<strong>View/Catalog0180</strong>View.htm</a></p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[mysql经常使用的10个技巧]]></title>
-    <link href="http://addcn.github.com/blog/2011/06/29/ten-mysql-tips/"/>
-    <updated>2011-06-29T18:43:00+08:00</updated>
-    <id>http://addcn.github.com/blog/2011/06/29/ten-mysql-tips</id>
-    <content type="html"><![CDATA[<p>旧博文备份<a href="http://blog.uedao.com/blog/?p=5">http://blog.uedao.com/blog/?p=5</a></p>
-
-<p><strong>1、shell执行sql语句</strong></p>
-
-<pre class="terminal"><code>/usr/local/mysql/bin/mysql -h192.168.1.36 -uaddcn -p'password' -e "use  dev; SELECT * FROM config LIMIT 0,10;"
-</code></pre>
-
-
-<p><strong>2、查看执行线程</strong></p>
-
-<pre class="terminal"><code>/usr/local/mysql/bin/mysqladmin -uaddcn -p'password'  pr
-/usr/local/mysql/bin/mysqladmin -uaddcn -p'password' processlist | wc -l  #连接数
-</code></pre>
-
-
-<p><strong>3、kill锁表线程</strong></p>
-
-<pre class="terminal"><code>/usr/local/mysql/bin/mysql -h192.168.1.36 -uaddcn -p'password'
-mysql> show processlist;
-mysql> kill 102609;
-</code></pre>
-
-
-<p><strong>4、主从同步</strong></p>
-
-<p>从机执行</p>
-
-<pre class="terminal"><code>
-/usr/local/mysql/bin/mysql -h192.168.1.36 -uaddcn -p'password'
-mysql> show slave status\G;
-mysql> stop slave;
-mysql> start slave;
-</code></pre>
-
-
-<p><strong>5、数据库备份还原</strong></p>
-
-<p>备份</p>
-
-<pre class="terminal"><code>/usr/local/mysql/bin/mysqldump -h192.168.1.36 -uaddcn -p'password' --opt  dev article > /home/addcn/backup/sql/dev_article_20110625.sql;
-/usr/local/mysql/bin/mysqldump -h192.168.1.36 -uaddcn -p'password' --opt  -l --default-character-set=latin1 --skip-set-charset dev >  /home/addcn/backup/sql/dev_`date +%d`.sql;
-/usr/local/mysql/bin/mysqldump -h192.168.1.36 -uaddcn -p'password' --opt  -l --default-character-set=latin1 --skip-set-charset dev article >  /home/addcn/backup/sql/dev_article_`date +%d`.sql;
-</code></pre>
-
-
-<p>还原</p>
-
-<pre class="terminal"><code>/usr/local/mysql/bin/mysql -h192.168.1.36 -uaddcn -p'password'
-mysql> show databases;
-mysql> create database dev;
-mysql> drop database dev;
-mysql> use dev;
-mysql> SET NAMES utf8;
-mysql> source /home/addcn/backup/sql/dev_article_20110625.sql;
-</code></pre>
-
-
-<p><strong>6、用户管理</strong></p>
-
-<pre class="terminal"><code>GRANT ALL PRIVILEGES ON *.* TO 'addcn'@'localhost' IDENTIFIED BY  'password' WITH GRANT OPTION;
-GRANT ALL PRIVILEGES ON dev.* TO 'addcn'@'%' IDENTIFIED BY 'password'  WITH GRANT OPTION;
-SET PASSWORD FOR 'addcn'@'localhost' = password('password');
-SET PASSWORD FOR 'addcn'@'%' = password('password');
-FLUSH PRIVILEGES;
-</code></pre>
-
-
-<p><strong>7、sql复制记录</strong></p>
-
-<pre class="terminal"><code>INSERT INTO `table` SELECT * FROM `table1` WHERE id=1; #无主键
-INSERT INTO `table`(`a`,`b`,`c`) SELECT `a`,`b`,`c` FROM `table1` WHERE  id=1 AND posttime<=UNIX_TIMESTAMP('2001-03-26 00:00:00'); #有主键写列
-</code></pre>
-
-
-<p><strong>8、根据两关联表更新其中一表某字段</strong></p>
-
-<pre class="terminal"><code>UPDATE `table` SET a = !a WHERE id = 1; #布尔值取反
-UPDATE `table1`,`table2` SET `table1`.id = `table2`.id WHERE  `table1`.id=`table2`.id; #更新
-</code></pre>
-
-
-<p><strong>9、if函数</strong></p>
-
-<pre class="terminal"><code>UPDATE `users` SET money=IF(money>=$monty,money-{$monty},money) WHERE user_id=1001;
-</code></pre>
-
-
-<p>扣费结合 if(mysql_affected_rows()) do_success_action(); 可防止INT字段超最大值而变很大数</p>
-
-<p><strong>10、其它</strong></p>
-
-<pre class="terminal"><code>EXPLAIN SELECT * FROM `article` FORCE INDEX (user_id) WHERE 1; #分析语句
-SELECT * FROM `article` FORCE INDEX (user_id) WHERE 1; #强制索引
-UPDATE LOW_PRIORITY `article` SET browsenum=browsenum+1 WHERE id='1001'; #滞后更新
-</code></pre>
-
-
-
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Windows下搭建Android开发环境]]></title>
-    <link href="http://addcn.github.com/blog/2011/04/15/windows-android-how-to/"/>
-    <updated>2011-04-15T18:43:00+08:00</updated>
-    <id>http://addcn.github.com/blog/2011/04/15/windows-android-how-to</id>
-    <content type="html"><![CDATA[<p>旧博文备份<a href="http://addcn.blogbus.com/logs/119738531.html">http://addcn.blogbus.com/logs/119738531.html</a></p>
-
-<p><strong>一、安装</strong></p>
-
-<p><strong>1、jdk（非jre）下载</strong></p>
-
-<p><a href="http://java.sun.com/javase/downloads/index.jsp">http://java.sun.com/javase/downloads/index.jsp</a></p>
-
-<p>默认安装在<code>C:\Program Files\Java\jdk1.6.0_24</code></p>
-
-<p><strong>2、eclipse下载</strong></p>
-
-<p>（1）<a href="http://www.oyksoft.com/soft/1250.html">http://www.oyksoft.com/soft/1250.html</a></p>
-
-<p>下载解压在<code>D:\Program Files\eclipse</code></p>
-
-<p>（2）添加环境变量</p>
-
-<p>JAVA_HOME <code>C:\Program Files\Java\jdk1.6.0_24</code></p>
-
-<p>CLASSPATH <code>.;%JAVA_HOME%\lib;%JAVA_HOME%\lib\tools.jar</code></p>
-
-<p>PATH <code>%JAVA_HOME%\bin;%JAVA_HOME%\jre\bin;D:\Program Files\Android\android-sdk-windows\tools</code></p>
-
-<p><strong>3、Android SDK</strong></p>
-
-<p><a href="http://dl.google.com/android/android-sdk_r08-windows.zip">http://dl.google.com/android/android-sdk_r08-windows.zip</a></p>
-
-<p>解压在<code>D:\Program Files\Android\android-sdk-windows</code></p>
-
-<p>（1）安装android开发插件(ADT)</p>
-
-<p>help->Install New SoftWare
-Add
-Name:Android
-Location:https://dl-ssl.google.com/android/eclipse/</p>
-
-<p>点击Yes按钮，最后重启Eclipse</p>
-
-<p>（2）配置Android SDK</p>
-
-<p>点击菜单window->preferences</p>
-
-<p>选择android SDK解压后的目录</p>
-
-<p>我这里只选了SDK 2.1 和samples for api 7 , 自己可以任意自定义，确定后，选择install按钮</p>
-
-<p>（3）新建AVD(android vitural device)</p>
-
-<p>android sdk and avd manager,选中Vitural Devices 在点击New按钮</p>
-
-<p>AVD2.2</p>
-
-<p>（4）HelloAndroid项目</p>
-
-<pre class="terminal"><code>HelloAndroid
-com.helloandroid
-HelloAndroid
-8
-Run as -> Run Configuration 选择AVD2.2
-</code></pre>
-
-
-<p><strong>二、参考文章</strong></p>
-
-<p>jdk环境变量配置</p>
-
-<ul>
-<li><a href="http://www.cnblogs.com/nicholas_f/articles/1494073.html">http://www.cnblogs.com/nicholas_f/articles/1494073.html</a></li>
-</ul>
-
-
-<p>Android开发环境搭建</p>
-
-<ul>
-<li><a href="http://yidingdian.com/?p=13">http://yidingdian.com/?p=13</a></li>
-<li><a href="http://mobile.51cto.com/android-227548.htm">http://mobile.51cto.com/android-227548.htm</a></li>
-<li><a href="http://www.cnblogs.com/Jackeyzhang/archive/2010/04/02/1703068.html">http://www.cnblogs.com/Jackeyzhang/archive/2010/04/02/1703068.html</a></li>
-</ul>
-
 ]]></content>
   </entry>
   

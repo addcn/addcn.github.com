@@ -4,7 +4,7 @@
   <title><![CDATA[Tag: octopress | uedao]]></title>
   <link href="http://addcn.github.com/tags/octopress/atom.xml" rel="self"/>
   <link href="http://addcn.github.com/"/>
-  <updated>2013-04-10T15:00:20+08:00</updated>
+  <updated>2013-06-05T10:18:13+08:00</updated>
   <id>http://addcn.github.com/</id>
   <author>
     <name><![CDATA[addcn]]></name>
@@ -119,7 +119,7 @@ git push origin source
 
 <p>最后访问见<a href="http://addcns.github.com">http://addcns.github.com</a></p>
 
-<p><strong>编码问题</strong></p>
+<p><strong>中文乱码问题</strong></p>
 
 <p>执行rake generate提示<code>rake generate Liquid Exception:invalid byte sequence in UTF-8 in post</code></p>
 

@@ -4,7 +4,7 @@
   <title><![CDATA[Tag: android | uedao]]></title>
   <link href="http://addcn.github.com/tags/android/atom.xml" rel="self"/>
   <link href="http://addcn.github.com/"/>
-  <updated>2013-04-10T15:00:20+08:00</updated>
+  <updated>2013-06-05T10:18:13+08:00</updated>
   <id>http://addcn.github.com/</id>
   <author>
     <name><![CDATA[addcn]]></name>
@@ -12,6 +12,170 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[无信用卡注册google play方法]]></title>
+    <link href="http://addcn.github.com/blog/2013/06/04/no-credit-card-register-google-play/"/>
+    <updated>2013-06-04T18:30:00+08:00</updated>
+    <id>http://addcn.github.com/blog/2013/06/04/no-credit-card-register-google-play</id>
+    <content type="html"><![CDATA[<p>注册google play账户其实很简单，但因为中国大陆特殊关系及很多人没有信用卡，就变得不那么容易了。</p>
+
+<p>简单说下亲测注册成功google play的方法，主要是不用开通实体信用卡且不用等待——实时开通。</p>
+
+<p><strong>1、注册<a href="https://www.tenpay.com/v2/">财付通</a></strong></p>
+
+<p>请先充值注册的费用US$25.00。我注册完成后，加手续费等全部扣费￥161.61元人民币。</p>
+
+<p><strong>2、财付通实名认证</strong></p>
+
+<p>开通境外支付必须先通过实名认证，按照操作就可以。</p>
+
+<p><strong>3、开通<a href="https://www.tenpay.com/v2/account/interna/index.shtml">境外支付</a></strong></p>
+
+<p>是否选择“转运地址提供商”，如果你不清楚这是什么？建议跟我一样，把“友家速递”和“4PX”都选择，确认开通后会虚拟一个信用卡账号码，包括信用卡境外地址、邮政编码、联系电话等。</p>
+
+<p><strong>4、登录<a href="http://www.google.com/wallet/">google电子钱包</a>，绑定虚拟信用卡</strong></p>
+
+<p>点右上角的get started按钮登录，然后添加信用卡。把步骤3虚拟出来的信用卡信息填写上去就可以。需要注意的是，“帐单信息”里面的地址、邮编等需要跟财付通虚拟的信用卡资料一致，否则会短信你“账单地址邮编验证失败”而授权失败。</p>
+
+<p><strong>5、注册<a href="https://play.google.com/apps/publish/">google pay</a></strong></p>
+
+<p>填写完资料确认支付，直接转跳到google play控制台成功了。</p>
+
+<p><strong>最后，有图有真相</strong></p>
+
+<p><img src="/download/images/google-play.png" alt="google play register" /></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Android異步線程使用總結]]></title>
+    <link href="http://addcn.github.com/blog/2013/04/19/android-sync-thread/"/>
+    <updated>2013-04-19T10:08:00+08:00</updated>
+    <id>http://addcn.github.com/blog/2013/04/19/android-sync-thread</id>
+    <content type="html"><![CDATA[<h2>new Thread</h2>
+
+<p><strong>MainThread button onClick</strong></p>
+
+<pre class="terminal"><code>
+
+new Thread(new Runnable() {
+        @Override
+        public void run() {
+                //休眠3秒，用于模拟网络操作时间
+                try {
+                    Thread.sleep(3000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }                        
+                //do something
+                Message mes=handler.obtainMessage("sync");
+                handler.sendMessage(mes);
+        }
+}).start();
+
+
+</code></pre>
+
+
+<p><strong>操作返回</strong></p>
+
+<pre class="terminal"><code>
+
+private Handler handler=new Handler(){
+        @Override
+        public void handleMessage(Message msg) {
+                switch (msg.what) {
+                        case "sync":                        
+                                //隐藏进度条
+                                loadProgressBar.setVisibility(View.GONE);
+                                break;
+                        default:
+                                break;
+                }
+                super.handleMessage(msg);
+        }
+};
+
+</code></pre>
+
+
+<h2>AsyncTask</h2>
+
+<p><strong>onCreant</strong></p>
+
+<pre class="terminal"><code>
+
+new DetailTask().execute(mHouse); // 加載詳細
+
+
+</code></pre>
+
+
+<p><strong>操作返回</strong></p>
+
+<pre class="terminal"><code>
+
+
+/**
+ * 詳細任務
+ * 
+ */
+public class DetailTask extends AsyncTask<House, Integer, String> 
+{
+        @Override
+        protected String doInBackground(House... params) {
+                // 任務執行
+                House houseTmp = params[0];
+                String houseCode = houseTmp.getHouseCode();                
+                String url = Constants.URL_GET_HOUSE_DETAIL + "&houseId=" + houseCode;
+                String result = NetUtils.GetContentFromUrl(url);
+                return result;
+        } 
+
+        @Override    
+        protected void onPostExecute(String result) {
+                // 返回內容
+                bodyLoading.setVisibility(View.GONE);
+                boolean isNetworkAvailable = mApp.isNetworkConnected();//網絡檢測
+                if (!isNetworkAvailable) {
+                        Toast.makeText(mContext, R.string.sys_network_error, Toast.LENGTH_SHORT).show();
+                }
+
+        }
+
+        @Override
+        protected void onPreExecute() {
+                // 任務啟動loading
+                bodyLoading.setVisibility(View.VISIBLE);
+        }
+
+        @Override
+        protected void onProgressUpdate(Integer... values) {
+                // 更新進度
+        }        
+}
+
+</code></pre>
+
+
+<p><strong>二、参考文章</strong></p>
+
+<ul>
+<li><a href="http://www.cnblogs.com/zhangkai281/archive/2011/07/27/2118319.html">ListView分页加载数据</a></li>
+</ul>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Android Google Map V2开发]]></title>
+    <link href="http://addcn.github.com/blog/2013/04/11/android-google-map-v2/"/>
+    <updated>2013-04-11T15:28:00+08:00</updated>
+    <id>http://addcn.github.com/blog/2013/04/11/android-google-map-v2</id>
+    <content type="html"><![CDATA[<p>google map v2开发总结</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[maven构建android项目]]></title>
