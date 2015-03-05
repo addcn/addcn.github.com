@@ -6,9 +6,9 @@ menu:
 
 # SubNav
 subnav:
-  github: "#"
-  weibo: "#"
-  rss: "#"
+  github: "https://github.com/addcn"
+  weibo: "http://weibo.com/addcn"
+  rss: "http://www.uedao.com/atom.xml"
   zhihu: "#"
   #douban: "#"
   #mail: "#"
@@ -29,7 +29,7 @@ google_analytics: ''
 favicon: /favicon.png
 
 #你的头像url
-avatar: ""
+avatar: "http://public.blogbus.com/profile/0/6/3/4504360/avatar_4504360_96.jpg"
 #是否开启分享
 share: true
 #是否开启多说评论，填写你在多说申请的项目名称 duoshuo: duoshuo-key
@@ -43,15 +43,24 @@ tagcloud: true
 #friends: false
 #开启——
 friends:
-  奥巴马的博客: http://localhost:4000/
-  卡卡的美丽传说: http://localhost:4000/
-  本泽马的博客: http://localhost:4000/
-  吉格斯的博客: http://localhost:4000/
-  习大大大不同: http://localhost:4000/
-  托蒂的博客: http://localhost:4000/
+  工作记录: http://www.uedao.com/
+  博客巴士: http://addcn.blogbus.com/
 
 #是否开启“关于我”。
 #不开启——
 #aboutme: false
 #开启——
-aboutme: 我是谁，我从哪里来，我到哪里去？我就是我，是颜色不一样的吃货…
+aboutme: 攻城狮、阅读者、时间管理。07年接触互联网，现在在一家互联网公司从事移动产品开发。
+
+# Extensions
+Plugins:
+- hexo-generator-feed
+- hexo-generator-sitemap
+#Feed Atom
+feed:
+  type: atom
+  path: atom.xml
+  limit: 20
+#sitemap
+sitemap:
+  path: sitemap.xml
