@@ -8,7 +8,7 @@ menu:
 subnav:
   github: "https://github.com/addcn"
   weibo: "http://weibo.com/addcn"
-  rss: "http://www.uedao.com/atom.xml"
+  rss: "http://blog.uedao.com/atom.xml"
   zhihu: "#"
   #douban: "#"
   #mail: "#"
@@ -43,7 +43,7 @@ tagcloud: true
 #friends: false
 #开启——
 friends:
-  工作记录: http://www.uedao.com/
+  工作记录: http://blog.uedao.com/
   博客巴士: http://addcn.blogbus.com/
 
 #是否开启“关于我”。
