@@ -3,5 +3,3 @@
 
 Ê¹ÓÃ°ïÖú
 --------------------------------------
-
-1¡¢git clone https://github.com/addcn/addcn.github.com.git
