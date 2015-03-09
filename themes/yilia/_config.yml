@@ -34,7 +34,7 @@ avatar: "http://public.blogbus.com/profile/0/6/3/4504360/avatar_4504360_96.jpg"
 share: true
 #是否开启多说评论，填写你在多说申请的项目名称 duoshuo: duoshuo-key
 #若使用disqus，请在博客config文件中填写disqus_shortname，并关闭多说评论
-duoshuo: true
+duoshuo: addcn
 #是否开启云标签
 tagcloud: true
 
@@ -56,7 +56,7 @@ aboutme: 攻城狮、阅读者、时间管理。07年接触互联网，现在在
 Plugins:
 - hexo-generator-feed
 - hexo-generator-sitemap
-#Feed Atom
+#feed
 feed:
   type: atom
   path: atom.xml
