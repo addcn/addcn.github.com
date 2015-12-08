@@ -19,3 +19,5 @@ ctrl+alt+L 整理代码格式
 shift + f6 重命名文件
 
 ctrl + alt + o 刪除無用import
+
+mac
