@@ -29,7 +29,7 @@ google_analytics: ''
 favicon: /favicon.png
 
 #你的头像url
-avatar: "http://public.blogbus.com/profile/0/6/3/4504360/avatar_4504360_96.jpg"
+avatar: "https://raw.githubusercontent.com/addcn/addcn.github.com/master/statics/images/avatar.png"
 #是否开启分享
 share: true
 #是否开启多说评论，填写你在多说申请的项目名称 duoshuo: duoshuo-key
