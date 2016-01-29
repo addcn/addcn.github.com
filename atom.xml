@@ -4,7 +4,7 @@
   <subtitle><![CDATA[分享是一种精神，与技术高低无关！]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://blog.uedao.com/"/>
-  <updated>2015-12-08T12:53:39.000Z</updated>
+  <updated>2015-12-09T02:46:09.000Z</updated>
   <id>http://blog.uedao.com/</id>
   
   <author>
@@ -15,11 +15,81 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title><![CDATA[mac快捷键]]></title>
+    <link href="http://blog.uedao.com/2015/12/09/2015-12-09-mac-keymap/"/>
+    <id>http://blog.uedao.com/2015/12/09/2015-12-09-mac-keymap/</id>
+    <published>2015-12-09T02:46:00.000Z</published>
+    <updated>2015-12-09T02:46:09.000Z</updated>
+    <content type="html"><![CDATA[<h1 id="mac_u5FEB_u6377_u952E"><a href="#mac_u5FEB_u6377_u952E" class="headerlink" title="mac快捷键"></a>mac快捷键</h1><table>
+<thead>
+<tr>
+<th><code>快捷键</code></th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>cmd + space</code></td>
+<td>输入法切换</td>
+</tr>
+<tr>
+<td><code>cmd + f3</code></td>
+<td>显示桌面</td>
+</tr>
+<tr>
+<td><code>cmd + 上下箭头</code></td>
+<td>上级／下级目录</td>
+</tr>
+<tr>
+<td><code>enter</code></td>
+<td>重命名文件</td>
+</tr>
+<tr>
+<td><code>cmd + c</code></td>
+<td>复制文件</td>
+</tr>
+<tr>
+<td><code>cmd +s</code></td>
+<td>保存</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+]]></content>
+    <summary type="html">
+    <![CDATA[<h1 id="mac_u5FEB_u6377_u952E"><a href="#mac_u5FEB_u6377_u952E" class="headerlink" title="mac快捷键"></a>mac快捷键</h1><table>
+<thead>
+<tr>
+<th><c]]>
+    </summary>
+    
+      <category term="mac" scheme="http://blog.uedao.com/tags/mac/"/>
+    
+      <category term="develop" scheme="http://blog.uedao.com/categories/develop/"/>
+    
+  </entry>
+  
+  <entry>
     <title><![CDATA[android studio快捷键]]></title>
     <link href="http://blog.uedao.com/2015/12/04/2015-12-04-android-studio-keymap/"/>
     <id>http://blog.uedao.com/2015/12/04/2015-12-04-android-studio-keymap/</id>
     <published>2015-12-04T08:55:00.000Z</published>
-    <updated>2015-12-08T12:53:39.000Z</updated>
+    <updated>2016-01-29T07:25:23.000Z</updated>
     <content type="html"><![CDATA[<h1 id="android_studio_u5FEB_u6377_u952E"><a href="#android_studio_u5FEB_u6377_u952E" class="headerlink" title="android studio快捷键"></a>android studio快捷键</h1><p>File–&gt;Setting–&gt;Keymap–&gt;Reformat Code</p>
 <p>alt + enter 導入缺少的包</p>
 <p>ctrl+alt+L 整理代码格式</p>
@@ -148,7 +218,7 @@ function loadImgFile($file_name) {
     <link href="http://blog.uedao.com/2011/07/08/2011-07-08-mysql-view-action/"/>
     <id>http://blog.uedao.com/2011/07/08/2011-07-08-mysql-view-action/</id>
     <published>2011-07-08T10:43:00.000Z</published>
-    <updated>2015-12-08T12:40:44.000Z</updated>
+    <updated>2016-01-29T07:25:41.000Z</updated>
     <content type="html"><![CDATA[<p>旧博文备份<a href="http://blog.uedao.com/blog/?p=20" target="_blank" rel="external">http://blog.uedao.com/blog/?p=20</a></p>
 <p><strong>1、创建</strong></p>
 <pre class="terminal"><code>CREATE&nbsp;[OR REPLACE] [&lt;algorithm attributes&gt;] VIEW [database.]&lt; name&gt; [(&lt;columns&gt;)]<br>
@@ -216,7 +286,7 @@ ORDER BY a.posttime DESC;
     <link href="http://blog.uedao.com/2011/06/29/2011-06-29-ten-mysql-tips/"/>
     <id>http://blog.uedao.com/2011/06/29/2011-06-29-ten-mysql-tips/</id>
     <published>2011-06-29T10:43:00.000Z</published>
-    <updated>2015-12-08T12:40:44.000Z</updated>
+    <updated>2015-12-08T13:40:50.000Z</updated>
     <content type="html"><![CDATA[<p>旧博文备份<a href="http://blog.uedao.com/blog/?p=5" target="_blank" rel="external">http://blog.uedao.com/blog/?p=5</a></p>
 <p><strong>1、shell执行sql语句</strong></p>
 <pre class="terminal"><code>/usr/local/mysql/bin/mysql -h192.168.1.36 -uaddcn -p'password' -e "use  dev; SELECT * FROM config LIMIT 0,10;"
@@ -306,7 +376,7 @@ UPDATE LOW_PRIORITY `article` SET browsenum=browsenum+1 WHERE id='1001'; #滞后
     <link href="http://blog.uedao.com/2011/04/15/2011-04-15-windows-android-how-to/"/>
     <id>http://blog.uedao.com/2011/04/15/2011-04-15-windows-android-how-to/</id>
     <published>2011-04-15T10:43:00.000Z</published>
-    <updated>2015-12-08T12:40:44.000Z</updated>
+    <updated>2015-12-08T13:43:34.000Z</updated>
     <content type="html"><![CDATA[<p>旧博文备份<a href="http://addcn.blogbus.com/logs/119738531.html" target="_blank" rel="external">http://addcn.blogbus.com/logs/119738531.html</a></p>
 <p><strong>一、安装</strong></p>
 <p><strong>1、jdk（非jre）下载</strong></p>
