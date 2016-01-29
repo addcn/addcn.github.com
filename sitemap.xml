@@ -2,6 +2,11 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://blog.uedao.com/README.html</loc>
+    <lastmod>2016-01-29T08:21:22.000Z</lastmod>
+  </url>
+  
+  <url>
     <loc>http://blog.uedao.com/2011/07/08/2011-07-08-mysql-view-action/</loc>
     <lastmod>2016-01-29T07:25:41.000Z</lastmod>
   </url>
